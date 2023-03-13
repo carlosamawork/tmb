@@ -67,7 +67,7 @@ export default function Footer ({
             {socialMenu.items.map((elem, index) => {                
               return(
                 <>
-                  <li key={`footer-menu-${index}`}
+                  <li key={`footer-social-${index}`}
                       ref={e => {
                         socialMenuRef.current[index] = e
                       }}>
@@ -90,7 +90,7 @@ export default function Footer ({
             {datosMenu.items.map((elem, index) => {                
               return(
                 <>
-                  <li key={`datos-menu-${index}`}
+                  <li key={`footer-datos-menu-${index}`}
                       ref={e => {
                         datosMenuRef.current[index] = e
                       }}>

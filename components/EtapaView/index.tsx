@@ -20,7 +20,7 @@ export default function EtapasView ({title, elements}) {
                 console.log(item.processed)
                 return(
                 <>
-                  <li key={`roles-${index}`}
+                  <li key={`roles-etapa-${index}`}
                     ref={e => {
                         etapaRef.current[index] = e
                   }}>
