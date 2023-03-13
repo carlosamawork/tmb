@@ -69,6 +69,7 @@ export default function Header ({props}) {
         style={styleHeader}
       >
         <div className={s.logo} ref={logoRef}>
+        <Link href={'/'}>
           <svg width="213px" height="76px" viewBox="0 0 213 76" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <polygon id="path-1" points="0 0 99.2478882 0 99.2478882 76 0 76"></polygon>
@@ -88,12 +89,15 @@ export default function Header ({props}) {
                 </g>
             </g>
           </svg>
+          </Link>
         </div>
         <div className={s.menuSection}>
           <nav className={s.mainMenu}>
             <ul>
               {props.props.mainMenu.tree.map((elem, index) =>
                 {
+                  let arr = elem.url.replace('/drupal/web', '');
+                  console.log(arr)
                   if(index !== 1) {
                     return (<>
                       <li
@@ -101,7 +105,7 @@ export default function Header ({props}) {
                       ref={e => {
                         mainMenuRef.current[index] = e
                       }} style={style}
-                      >{ elem.title }</li>
+                      ><Link href={`${ arr }`}>{ elem.title }</Link></li>
                       </>)
                   } else {
                     return (
@@ -111,10 +115,12 @@ export default function Header ({props}) {
                         ref={e => {
                           mainMenuRef.current[index] = e
                         }} style={style}
-                        >{ elem.title }
+                        ><Link href={`${ arr }`}>{ elem.title }</Link>
                           <nav className={s.subMenu}>
                             <ul>
                             {props.props.mainMenu.items.map((item, index_2) => {
+                              let arr_sub = item.url.replace('/drupal/web', '');
+                              console.log(arr)
                               if(item.parent === elem.id) {
                                 return(
                                   <>
@@ -122,7 +128,7 @@ export default function Header ({props}) {
                                         ref={e => {
                                           mainMenuRef.current[index_2] = e
                                         }} style={styleBlack}>
-                                          {item.title}
+                                          <Link href={arr_sub ? arr_sub : '/'}>{item.title}</Link>
                                     </li>
                                   </>
                                 )
