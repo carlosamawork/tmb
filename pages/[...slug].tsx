@@ -6,7 +6,6 @@ import { drupal } from "lib/drupal"
 import { NodeArticle } from "components/node--article"
 import  SomosView  from "components/SomosView"
 import ComoView from "components/ComoView"
-import { Layout } from "components/layout"
 
 const RESOURCE_TYPES = ["node--quienes_somos", "node--article"]
 

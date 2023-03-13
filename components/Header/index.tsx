@@ -50,7 +50,7 @@ export default function Header ({props}) {
         ref={topRef}>
         <nav>
           <ul>
-          {props.props.items.map((elem, index) => 
+          {props.props.items.items.map((elem, index) => 
             <>
               <li
               key={`top-menu-${index}`}

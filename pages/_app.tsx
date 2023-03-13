@@ -36,7 +36,7 @@ function TMBApp ({
 TMBApp.getInitialProps = async(appContext) => {
   const appProps = await App.getInitialProps(appContext)
 
-  const {menu, items} = await drupal.getMenu("top-menu")
+  const items = await drupal.getMenu("top-menu")
 
   const mainMenu = await drupal.getMenu("menu-principal")
 
@@ -52,7 +52,6 @@ TMBApp.getInitialProps = async(appContext) => {
   )
 
   appProps.pageProps = {
-    menu,
     items,
     mainMenu,
     footerMenu,

@@ -26,8 +26,11 @@ export default function SomosView ({node}) {
             <SomosText 
                 title={node.field_title_grupo.value} 
                 text={node.field_text_grupo.value}
+                foto={undefined}
+                background={undefined} 
             />
             <FourCircles 
+                title={undefined}
                 datos={node.field_circles_grupo}
             />
             <EjesView

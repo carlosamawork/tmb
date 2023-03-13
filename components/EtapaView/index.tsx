@@ -9,6 +9,7 @@ import { Body } from "components/Body";
 
 export default function EtapasView ({title, elements}) {
     const etapaRef = useRef([]);
+
     return (
         <>
           <section className={s.etapasViewSection} >
@@ -16,6 +17,7 @@ export default function EtapasView ({title, elements}) {
               <h2>{title}</h2>
               <ul className={s.listElements}>
               {elements.map((item, index) => {
+                console.log(item.processed)
                 return(
                 <>
                   <li key={`roles-${index}`}
