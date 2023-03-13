@@ -44,6 +44,20 @@ export default function Header ({props}) {
     }
   }, []) 
 
+  useEffect(() => {
+    setStyleHeader({
+      backgroundColor: router.pathname === '/' ? 'transparent' : 'white',
+    })
+  
+    setStyle({
+      color: router.pathname === '/' ? 'white' : 'black',
+    })
+  
+    setStyleSvg({
+      fill: router.pathname === '/' ? 'white' : 'black',
+    })
+  }, [router.pathname])
+
   return (
     <>
       <div className={s.topHeader}
