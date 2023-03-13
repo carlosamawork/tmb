@@ -6,6 +6,7 @@ import { drupal } from "lib/drupal"
 import { NodeArticle } from "components/node--article"
 import  SomosView  from "components/SomosView"
 import ComoView from "components/ComoView"
+import QueView from "components/QueView"
 
 const RESOURCE_TYPES = ["node--quienes_somos", "node--article"]
 
@@ -18,10 +19,11 @@ export default function NodePage({ resource }: NodePageProps) {
   if (!resource) return null
 
   return (
-    
+
     <>
       {resource.type === "node--quienes_somos" && <SomosView node={resource} />}
       {resource.type === "node--como_lo_hacemos" && <ComoView node={resource} />}
+      {resource.type === "node--que_hacemos" && <QueView node={resource} />}
       {resource.type === "node--article" && <NodeArticle node={resource} />}
     </>
     
@@ -65,6 +67,12 @@ export async function getServerSideProps(
   if (type === "node--como_lo_hacemos") {
     params = {
       include: "field_banner_background, uid",
+    }
+  }
+
+  if (type === "node--que_hacemos") {
+    params = {
+      include: "field_banner_background, field_mapa, field_logos_soluciones_digitales, field_logos_modos_transporte, field_logos_experiencias, field_logos_descarbonizacion, uid",
     }
   }
 

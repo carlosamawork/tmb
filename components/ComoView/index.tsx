@@ -9,7 +9,7 @@ import s from './ComoView.module.scss';
 
 
 
-export default function SomosView ({node}) {
+export default function ComoView ({node}) {
     console.log(node)
     return (
         <>
