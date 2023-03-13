@@ -10,10 +10,13 @@ const nextConfig = {
   },
   images: { 
     minimumCacheTTL: 60,
-    domains: [process.env.NEXT_IMAGE_DOMAIN], 
+    domains: [process.env.NEXT_IMAGE_DOMAIN, 'upbeat-shamir.104-248-128-170.plesk.page'], 
     formats: [
       'image/avif', 
-      'image/webp'
+      'image/webp',
+      'image/png',
+      'image/jpg',
+      'image/jpeg'
     ] 
   },
   sassOptions: {
