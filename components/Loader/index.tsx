@@ -2,7 +2,7 @@
 export default function myLoader ({src, width, quality }) {
 
     return (
-        `http://localhost:8888/${src}?w=${width}`
+        `https://upbeat-shamir.104-248-128-170.plesk.page${src}?w=${width}`
     )
 
 }

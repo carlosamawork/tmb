@@ -8,7 +8,7 @@ import s from "./BannerHome.module.scss"
 
 
 export default function BannerHome ({ image, logos, title, subtitle, text }) {
-    
+    console.log(image)
     const logosRef = useRef([])
     return (
         <div className={s.bannerHome}>
