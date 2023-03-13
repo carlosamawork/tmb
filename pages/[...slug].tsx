@@ -18,6 +18,7 @@ export default function NodePage({ resource }: NodePageProps) {
   if (!resource) return null
 
   return (
+    
     <>
       {resource.type === "node--quienes_somos" && <SomosView node={resource} />}
       {resource.type === "node--como_lo_hacemos" && <ComoView node={resource} />}
