@@ -1,0 +1,32 @@
+.textFlex{
+    max-width: 1320px;
+    margin: auto;
+    padding: 79px 36px 120px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(30px, 10vw, 55px);
+
+    h3{
+        font-size: 30px;
+        line-height: 1.47;
+    }
+
+    p{
+        font-size: 20px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.6;
+    }
+}
+
+.gridTwoColumns{
+    max-width: 1320px;
+    margin: auto;
+    padding: 0px 36px 121px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(90px, 20vw, 174px);
+}

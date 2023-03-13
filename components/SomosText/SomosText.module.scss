@@ -1,0 +1,82 @@
+.somosTextSection{
+    position: relative;
+
+    
+}
+
+.somosTextContent{
+    max-width: 1320px;
+    margin: auto;
+    padding: 134px 36px 0;
+    width: 100%;
+    
+    .line{
+        height: 2px;
+        width: 5%;
+        background-color: var(--color-red);
+        position: absolute;
+        left: 0;
+        top: 159px;
+    }
+
+    .line:after{
+        content: "";
+        border: 2px solid var(--color-red);
+        width: 29px;
+        height: 29px;
+        display: block;
+        position: absolute;
+        right: -29px;
+        top: -14px;
+        background-color: transparent;
+        border-radius: 100%;
+
+    }
+
+    h2{
+        font-size: 45px;
+        font-weight: 500;
+        margin-bottom: 33px;
+    }
+
+    .contentText{
+        h3{
+            font-size: 30px;
+            line-height: 1.47;
+            width: 70%;
+            margin-bottom: 33px;
+        }
+
+        p{
+            font-size: 20px;
+            line-height: 1.6;
+            width: 60%;
+            margin-bottom: 33px;
+        }
+
+        strong{
+            font-weight: 500;
+        }
+    }
+
+    .imageCircle{
+        height: 463.6px;
+        width: 463.6px;
+        border-radius: 100%;
+        overflow:hidden;
+        position: absolute;
+        right: -150px;
+        top: 50%;
+        transform: translateY(-50%);
+        img{
+            height: 100%;
+            width: auto;
+            min-width: 698px;
+            display: block;
+            right: 0;
+            position: absolute;
+        }
+    }
+
+
+}

@@ -1,0 +1,67 @@
+.footer {
+  background-color: black;
+  padding: 48px 36px 31px;
+  color: white;
+
+  .logoWhite, .preMenu, .bottomMenu{
+    max-width: 1320px;
+    margin: auto;
+    padding: 0 36px;
+  }
+
+  .logoWhite{
+    margin-bottom: 55px;
+  }
+
+  .preMenu{
+    display: flex;
+    .footerMenu{
+      font-weight: 500;
+      ul{
+        display: flex;
+        li{
+          margin-right: 25px;
+        }
+      }
+      
+    }
+  }
+
+  
+
+  .socialMenu{
+    ul{
+      display: flex;
+      margin-left: 10px;
+      li{
+        margin-right: 25px;
+        width: 20px;
+        height: 20px;
+        position: relative;
+      }
+    }
+    li{
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+  }
+
+  .bottomMenu{
+    display: flex;
+    margin-top: 33px;
+    .dataMenu{
+      ul{
+        display: flex;
+        li{
+          margin-right: 25px;
+        }
+      }
+    }
+
+    .copyright{
+      color: #727272;
+    }
+  }
+}
+

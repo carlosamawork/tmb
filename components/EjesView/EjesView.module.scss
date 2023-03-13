@@ -1,0 +1,38 @@
+.ejesSection{
+    max-width: 1320px;
+    margin: auto;
+    padding: 134px 36px 134px;
+    width: 100%;
+
+    h2{
+        font-size: 45px;
+        font-weight: 500;
+        line-height: 1;
+        margin-bottom: 29px;
+    }
+
+    .gridSection{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 55px;
+        column-gap: clamp(55px, 10vw, 151px);
+        
+        h3{
+            font-size: 35px;
+            font-weight: 500;
+            color: var(--color-red);
+            line-height: 1.29;
+            margin-bottom: 9px;
+        }
+
+        p{
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+        }
+
+        
+    }
+}

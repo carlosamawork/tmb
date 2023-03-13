@@ -1,0 +1,63 @@
+:root {
+  @each $name, $color in $colors {
+    #{"--color-" + $name}: $color;
+  }
+
+  --vh: 1vh;
+  --headerHeight: 150.74;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  overscroll-behavior: none;
+  background-color: var(--color-white);
+  color: var(--color-black);
+
+  @media (min-width: 1660px) {
+    font-size: calc(16 / 1660 * 100vw);
+  }
+}
+
+body {
+  font-family: 'Helvetica Neue LT Std', Helvetica, sans-serif;
+  overscroll-behavior: none;
+  line-height: calc(18 / 16);
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+html,
+body,
+#__next,
+#app {
+  min-height: calc(var(--vh) * 100);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  flex: 1 1;
+} 
+
+strong{
+  font-weight: 500;
+}

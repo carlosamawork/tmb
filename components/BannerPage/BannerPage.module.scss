@@ -1,0 +1,59 @@
+.bannerPage{
+    height: auto;
+    width: 100%;
+    position: relative;    
+    margin-top: 143px;
+    .veilOpacity{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to left, #fff, #6a6a6a 30%);
+        mix-blend-mode: multiply;
+        z-index: 1;
+    }
+    
+    .bannerImage{
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        overflow: hidden;
+        img{
+            min-height: 100%;
+            min-width: 100%;
+        }
+    }
+
+    .content{
+        position: absolute;
+        top: 50%;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        max-width: 1320px;
+        padding: 21px 36px;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        width: 100%;
+        grid-gap: 69px;
+        color: white;
+        z-index: 5;
+        .contentText{
+            width: 100%;
+            p{
+               font-size: 20px;
+               line-height: 1.1;
+               font-weight: 500;
+               margin-bottom: 13px; 
+            }
+            h1{
+                font-size: 70px;
+                line-height: 0.93;
+                font-weight: 500;
+                margin-bottom: 17px;
+            }
+
+        }
+
+    }
+}
