@@ -73,7 +73,7 @@ export default function Footer ({
                       }}>
                         <Image 
                           alt={elem.title}
-                          src={elem.title + '.svg'}
+                          src={'/' + elem.title + '.svg'}
                           fill
                         />
                   </li>
