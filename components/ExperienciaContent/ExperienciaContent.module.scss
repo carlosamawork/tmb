@@ -1,0 +1,129 @@
+.contentModos{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    max-width: 1320px;
+    margin: auto;
+    padding: 120px 36px 80px;
+    width: 100%;
+    grid-gap: 39px;
+    position: relative;
+    h2{
+        font-size: 45px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        margin-bottom: 11px;
+    }
+
+    .firstContent{
+        margin-bottom: 65px;
+        width: 60%;
+        p{
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+        }
+
+        
+    }
+
+    .bodyContent{
+        margin-top: 47px;
+        margin-bottom: 65px;
+        width: 70%;
+
+        h4, h3{
+            font-size: 35px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.29;
+            margin-bottom: 17px;
+        }
+        p{
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+        }
+
+        ul{
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+    }
+
+
+}
+
+.mainImage{
+    position: absolute;
+    right: -30%;
+    top: 5%;
+}
+
+.elementsDescar{
+    column-count: 2;
+    padding: 98px 0px 80px;
+    width: 100%;
+    column-gap: 30px;
+
+    .element{
+        margin-bottom: 60px;
+        border-top: 1px solid #d8d8d8;
+        padding-top: 10px;
+
+        h3, h4{
+            font-size: 25px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.28;
+            color: var(--color-red);
+            margin-bottom: 17px;
+        }
+        ul{
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            list-style-type: none;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+
+        ul li::before {
+            content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+            color: var(--color-red); /* Change the color */
+            font-weight: bold; /* If you want it to be bold */
+            display: inline-block; /* Needed to add space between the bullet and the text */
+            width: 1em; /* Also needed for space (tweak if needed) */
+            margin-left: -1em; /* Also needed for space (tweak if needed) */
+            font-size: 10px;
+        }
+
+        p{
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        img{
+            margin: 17px 0 56px;
+            width: 100%;
+        }
+    }
+}

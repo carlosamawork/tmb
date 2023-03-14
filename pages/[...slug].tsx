@@ -8,6 +8,8 @@ import  SomosView  from "components/SomosView"
 import ComoView from "components/ComoView"
 import QueView from "components/QueView"
 import ModosView from "components/ModosView"
+import DescarbonizacionView from "components/DescarbonizacionView"
+import ExperienciaView from "components/ExperienciaView"
 
 const RESOURCE_TYPES = ["node--quienes_somos", "node--article", "node--como_lo_hacemos", "node--que_hacemos"]
 
@@ -25,7 +27,10 @@ export default function NodePage({ resource }: NodePageProps) {
       {resource.type === "node--quienes_somos" && <SomosView node={resource} />}
       {resource.type === "node--como_lo_hacemos" && <ComoView node={resource} />}
       {resource.type === "node--que_hacemos" && <QueView node={resource} />}
-      {resource.type === "node--pagina_modos_de_transporte" && <ModosView node={resource} />}
+      {resource.type === "node--pagina_modos_de_transporte" && resource.path.alias === "/que-hacemos/modos-transporte" && <ModosView node={resource} />}
+      {resource.type === "node--pagina_modos_de_transporte" && resource.path.alias === "/que-hacemos/descarbonizacion" && <DescarbonizacionView node={resource} />}
+      {resource.type === "node--pagina_modos_de_transporte" && resource.path.alias === "/que-hacemos/experiencia-cliente" && <ExperienciaView node={resource} />}
+      {resource.type === "node--pagina_modos_de_transporte" && resource.path.alias === "/que-hacemos/soluciones-digitales" && <ExperienciaView node={resource} />}
       {resource.type === "node--article" && <NodeArticle node={resource} />}
     </>
     
@@ -80,7 +85,7 @@ export async function getServerSideProps(
 
   if (type === "node--pagina_modos_de_transporte") {
     params = {
-      include: "field_banner_background, field_lista_modos_de_transporte, field_lista_modos_de_transporte.field_icono, field_lista_modos_de_transporte.field_project_image, field_lista_modos_de_transporte.field_slider_fotos, uid",
+      include: "field_banner_background, field_lista_modos_de_transporte, field_lista_modos_de_transporte.field_icono, field_lista_modos_de_transporte.field_project_image, field_lista_modos_de_transporte.field_slider_fotos, field_lista_modos_de_transporte.field_image, uid",
     }
   }
 
