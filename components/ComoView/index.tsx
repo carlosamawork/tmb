@@ -17,6 +17,7 @@ export default function ComoView ({node}) {
             image={node.field_banner_background} 
             title={node.field_general_title.value} 
             subtitle={node.field_subtitle}
+            text={undefined}
            /> 
            <section className={s.textFlex}>
                 <div className="contentLeft">
