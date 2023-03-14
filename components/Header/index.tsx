@@ -134,7 +134,7 @@ export default function Header ({props}) {
                             <ul>
                             {props.props.mainMenu.items.map((item, index_2) => {
                               let arr_sub = item.url.replace('/web', '');
-                              console.log(arr)
+                              console.log(item)
                               if(item.parent === elem.id) {
                                 return(
                                   <>

@@ -30,7 +30,7 @@ export default function BannerHome ({ image, logos, title, subtitle, text }) {
                     </div>
                     <button><div className={s.plus}>+</div></button>
                 </div>
-                <ul className={s.logos}>
+                {logos ? <ul className={s.logos}>
                     {logos.map((elem, index) => {
                         return(
                             <li key={`logo-${index}`}
@@ -53,7 +53,8 @@ export default function BannerHome ({ image, logos, title, subtitle, text }) {
                         )
                     })}
                     
-                </ul>
+                </ul> : undefined}
+                
             </div>
             <div className={s.bannerLine}>
                 <div className={s.line}>

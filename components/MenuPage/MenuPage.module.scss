@@ -1,0 +1,27 @@
+.menuPage{
+    margin-top: -25px;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: 11;
+    .listElements{
+        display: flex;
+        justify-content: center;
+
+        li{
+            padding: 20px 27px 16px;
+            background-color: white;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        li.active{
+            background-color: #efefef;
+        }
+
+        li:hover{
+            background-color: #efefef;
+        }
+    }
+}

@@ -4,7 +4,7 @@ import myLoader from "components/Loader";
 import s from "./BannerPage.module.scss"
 
 
-export default function BannerPage ({ image, title, subtitle}) {
+export default function BannerPage ({ image, title, subtitle, text}) {
 
     return (
         <div className={s.bannerPage}>
@@ -23,6 +23,8 @@ export default function BannerPage ({ image, title, subtitle}) {
                 <div className={s.contentText}>
                     <p>{subtitle}</p>
                     <h1>{title}</h1>
+                    {text ? <div className={s.textBanner} dangerouslySetInnerHTML={{ __html: text.value}}>
+                    </div> : undefined}
                     
                 </div>
             </div>

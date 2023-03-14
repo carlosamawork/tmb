@@ -7,8 +7,9 @@ import { NodeArticle } from "components/node--article"
 import  SomosView  from "components/SomosView"
 import ComoView from "components/ComoView"
 import QueView from "components/QueView"
+import ModosView from "components/ModosView"
 
-const RESOURCE_TYPES = ["node--quienes_somos", "node--article"]
+const RESOURCE_TYPES = ["node--quienes_somos", "node--article", "node--como_lo_hacemos", "node--que_hacemos"]
 
 interface NodePageProps {
   resource: DrupalNode
@@ -24,6 +25,7 @@ export default function NodePage({ resource }: NodePageProps) {
       {resource.type === "node--quienes_somos" && <SomosView node={resource} />}
       {resource.type === "node--como_lo_hacemos" && <ComoView node={resource} />}
       {resource.type === "node--que_hacemos" && <QueView node={resource} />}
+      {resource.type === "node--pagina_modos_de_transporte" && <ModosView node={resource} />}
       {resource.type === "node--article" && <NodeArticle node={resource} />}
     </>
     
@@ -31,7 +33,7 @@ export default function NodePage({ resource }: NodePageProps) {
 }
 
 export async function getServerSidePaths(context): Promise<GetStaticPathsResult> {
-  console.log(context)
+  console.log('lalalala')
   return {
     paths: await drupal.getStaticPathsFromContext(RESOURCE_TYPES, context),
     fallback: "blocking",
@@ -73,6 +75,12 @@ export async function getServerSideProps(
   if (type === "node--que_hacemos") {
     params = {
       include: "field_banner_background, field_mapa, field_logos_soluciones_digitales, field_logos_modos_transporte, field_logos_experiencias, field_logos_descarbonizacion, uid",
+    }
+  }
+
+  if (type === "node--pagina_modos_de_transporte") {
+    params = {
+      include: "field_banner_background, field_lista_modos_de_transporte, field_lista_modos_de_transporte.field_icono, field_lista_modos_de_transporte.field_project_image, field_lista_modos_de_transporte.field_slider_fotos, uid",
     }
   }
 
