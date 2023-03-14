@@ -16,6 +16,7 @@ export default function SomosView ({node}) {
                 image={node.field_banner_background} 
                 title={node.field_banner_background.resourceIdObjMeta.alt} 
                 subtitle={node.field_subtitulo.value}
+                text={undefined}
             />
             <SomosText 
                 title={node.field_title_introduccion.value} 
