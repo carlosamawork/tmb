@@ -17,6 +17,7 @@ export default function QueView ({node}) {
             image={node.field_banner_background} 
             title={node.title} 
             subtitle={node.field_subtitle}
+            text={undefined}
            /> 
            <section className={s.contentQue}>
                 <div className={s.bodyText} dangerouslySetInnerHTML={{__html: node.body.value }}></div>
