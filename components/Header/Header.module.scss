@@ -35,7 +35,7 @@
   z-index: 20;
   .menuSection{
     display: flex;
-
+    align-items: center;
     .search{
       margin-left: 43px;
     }
@@ -52,6 +52,8 @@
     li{
       margin-left: 43px;
       position: relative;
+      font-size: 17px;
+      font-weight: 500;
     }
 
     li:hover{

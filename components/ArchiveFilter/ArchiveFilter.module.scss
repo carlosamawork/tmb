@@ -1,0 +1,38 @@
+.filterSection{
+    max-width: 1320px;
+    margin: 0px auto;
+    padding: 49px 36px;
+    .title{
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.1;
+        margin-bottom: 26px;
+    }
+
+    .form{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .resetContent{
+        button{
+            padding: 17px 20px 17px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 500;
+            background-color: black;
+            color: white;
+        }
+
+        button:hover{
+            background-color: white;
+            color: black;
+        }
+    }
+
+    
+}

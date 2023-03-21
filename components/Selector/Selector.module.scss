@@ -1,0 +1,57 @@
+.selectorSmall{
+    position: absolute;
+    background-color: white;
+    min-width: 231px;
+    max-width: 231px;
+    li{
+        width: 100%;
+        padding: 17px 20px 17px;
+        font-size: 17px;
+        cursor: pointer;
+        border-top: 1px solid #efefef;
+    }
+}
+
+.selectorLarge{
+    position: absolute;
+    background-color: white;
+    min-width: 381px;
+    max-width: 381px;
+    li{
+        width: 100%;
+        padding: 17px 20px 17px;
+        font-size: 17px;
+        cursor: pointer;
+        border-top: 1px solid #efefef;
+    }
+}
+
+.buttonSelectLarge{
+    background-color: white;
+    width: 100%;
+    padding: 17px 20px 17px;
+    text-align: left;
+    min-width: 381px;
+    max-width: 381px;
+    font-size: 17px;
+    font-weight: 500;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.buttonSelectSmall{
+    background-color: white;
+    width: 100%;
+    padding: 17px 20px 17px;
+    text-align: left;
+    min-width: 231px;
+    max-width: 231px;
+    font-size: 17px;
+    font-weight: 500;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.buttonSelectLarge::after, .buttonSelectSmall::after{
+    content: url('/arrow-down.png');
+}

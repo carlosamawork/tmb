@@ -41,7 +41,7 @@ export default function SliderHome ({title, text, fotos}) {
                         {
                             fotos.map((foto, index) => {
                                 return (
-                                    <SwiperSlide key={foto} virtualIndex={index}>
+                                    <SwiperSlide key={foto+'_'+index} virtualIndex={index}>
                                         <figure>
                                             <Image
                                                 loader={myLoader}

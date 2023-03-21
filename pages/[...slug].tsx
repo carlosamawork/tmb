@@ -1,24 +1,33 @@
 import { GetStaticPathsResult, GetStaticPropsResult } from "next"
 import Head from "next/head"
-import { DrupalNode } from "next-drupal"
+import { DrupalNode, DrupalTaxonomyTerm } from "next-drupal"
 
 import { drupal } from "lib/drupal"
-import { NodeArticle } from "components/node--article"
+import normalize from 'json-api-normalizer';
 import  SomosView  from "components/SomosView"
 import ComoView from "components/ComoView"
 import QueView from "components/QueView"
 import ModosView from "components/ModosView"
 import DescarbonizacionView from "components/DescarbonizacionView"
 import ExperienciaView from "components/ExperienciaView"
+import { pathToFileURL } from "url"
+import ArchiveView from "components/ArchiveView"
+import ArticleView from "components/ArticleView"
 
 const RESOURCE_TYPES = ["node--quienes_somos", "node--article", "node--como_lo_hacemos", "node--que_hacemos"]
 
 interface NodePageProps {
-  resource: DrupalNode
+  resource: DrupalNode,
+  nodes: DrupalNode,
+  tags: DrupalTaxonomyTerm,
+  rol: DrupalTaxonomyTerm,
+  etapas: DrupalTaxonomyTerm,
+  tipologia: DrupalTaxonomyTerm
 }
 
-export default function NodePage({ resource }: NodePageProps) {
-  console.log(resource);
+export default function NodePage({ resource, nodes, tags, rol, etapas, tipologia }: NodePageProps) {
+  console.log(resource)
+  console.log(tags)
   if (!resource) return null
 
   return (
@@ -31,14 +40,14 @@ export default function NodePage({ resource }: NodePageProps) {
       {resource.type === "node--pagina_modos_de_transporte" && resource.path.alias === "/que-hacemos/descarbonizacion" && <DescarbonizacionView node={resource} />}
       {resource.type === "node--pagina_modos_de_transporte" && resource.path.alias === "/que-hacemos/experiencia-cliente" && <ExperienciaView node={resource} />}
       {resource.type === "node--pagina_modos_de_transporte" && resource.path.alias === "/que-hacemos/soluciones-digitales" && <ExperienciaView node={resource} />}
-      {resource.type === "node--article" && <NodeArticle node={resource} />}
+      {resource.type === "node--articles_archive" && <ArchiveView page={resource} nodes={nodes} tags={tags} rol={rol} etapa={etapas} tipologia={tipologia} />}
+      {resource.type === "node--article" && <ArticleView node={resource} />}
     </>
     
   )
 }
 
 export async function getServerSidePaths(context): Promise<GetStaticPathsResult> {
-  console.log('lalalala')
   return {
     paths: await drupal.getStaticPathsFromContext(RESOURCE_TYPES, context),
     fallback: "blocking",
@@ -59,11 +68,50 @@ export async function getServerSideProps(
   const type = path.jsonapi.resourceName
 
   let params = {}
-  if (type === "node--article") {
+  let nodes =  null
+  let tags = null
+  let etapas =  null
+  let rol = null
+  let tipologia = null
+
+  if (type === "node--articles_archive") {
     params = {
-      include: "field_image,uid",
+      include: "field_banner_background,uid",
     }
-  }
+    nodes = await drupal.getResourceCollection<DrupalNode[]>("node--article", {
+      params: {
+        "fields[node--article]": "title,field_pais,path,field_image,field_tags,field_etapa,field_tipologia,field_rol_tmb",
+        include: "field_tags.field_icono,field_tags,field_etapa,field_tipologia,field_rol_tmb,field_image,uid",
+        
+      }
+    })
+
+    tags = await drupal.getResourceCollection<DrupalTaxonomyTerm[]>("taxonomy_term--tags", {
+      params: {
+        "fields[taxonomy_term--etapa]": "name,field_icono,field_icono_inactivo",
+        include: "field_icono, field_icono_inactivo",
+        
+      }
+    })
+
+    etapas = await drupal.getResourceCollection<DrupalTaxonomyTerm[]>("taxonomy_term--etapa", {
+      params: {
+        "fields[taxonomy_term--etapa]": "name",  
+      }
+    })
+
+    tipologia = await drupal.getResourceCollection<DrupalTaxonomyTerm[]>("taxonomy_term--tipologia_del_proyecto", {
+      params: {
+        "fields[taxonomy_term--tipologia_del_proyecto]": "name",  
+      }
+    })
+
+    rol = await drupal.getResourceCollection<DrupalTaxonomyTerm[]>("taxonomy_term--rol", {
+      params: {
+        "fields[taxonomy_term--rol]": "name",
+      }
+    })
+  } 
 
   if (type === "node--quienes_somos") {
     params = {
@@ -89,6 +137,14 @@ export async function getServerSideProps(
     }
   }
 
+  if (type === "node--article") {
+    params = {
+      "fields[node--article]": "title,body,path,field_titulo_rol,field_titulo_etapa,field_banner_background,field_relacionados,field_image,field_tags,field_etapa,field_tipologia,field_rol_tmb,field_pais,field_title_relacionados",
+      "fields[node--related_articles]": "title,field_related_articles",
+      include: "field_tags,field_tags.field_icono,field_banner_background,field_etapa,field_rol_tmb,field_relacionados,field_relacionados.field_related_articles.field_tags,uid,field_relacionados.field_related_articles.field_image,field_relacionados.field_related_articles.field_tags,field_relacionados.field_related_articles.field_etapa,field_relacionados.field_related_articles.field_tipologia,field_relacionados.field_related_articles.field_rol_tmb,field_relacionados.field_related_articles.field_tags.field_icono,field_relacionados.field_related_articles",
+    }
+  }
+
   const resource = await drupal.getResourceFromContext<DrupalNode>(
     path,
     context,
@@ -96,6 +152,7 @@ export async function getServerSideProps(
       params,
     }
   )
+
 
   // At this point, we know the path exists and it points to a resource.
   // If we receive an error, it means something went wrong on Drupal.
@@ -112,10 +169,16 @@ export async function getServerSideProps(
       notFound: true,
     }
   }
+  
 
   return {
     props: {
       resource,
+      nodes,
+      tags,
+      rol,
+      tipologia,
+      etapas
     },
   }
 }

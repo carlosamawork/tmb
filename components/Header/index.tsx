@@ -111,7 +111,6 @@ export default function Header ({props}) {
               {props.props.mainMenu.tree.map((elem, index) =>
                 {
                   let arr = elem.url.replace('/web', '');
-                  console.log(arr)
                   if(index !== 1) {
                     return (<>
                       <li
@@ -134,7 +133,6 @@ export default function Header ({props}) {
                             <ul>
                             {props.props.mainMenu.items.map((item, index_2) => {
                               let arr_sub = item.url.replace('/web', '');
-                              console.log(item)
                               if(item.parent === elem.id) {
                                 return(
                                   <>

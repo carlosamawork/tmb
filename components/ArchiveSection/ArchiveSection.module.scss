@@ -1,0 +1,46 @@
+.article{
+    display: grid;
+    grid-template-rows: 1fr auto auto auto;
+    h3{
+        font-size: 25px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.28;
+    }
+
+    p{
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 2;
+        color: #8d8d8d;
+    }
+}
+
+.articleImage{
+    img{
+        width: 100%;
+    }
+}
+
+.tag{
+    color: var(--color-red);
+    display: flex;
+    margin: 22px 0;
+    img{
+        width: 28px;
+        height: 28px;
+    }
+
+    p{
+        margin-left: 10px;
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.6;
+        color: var(--color-red);
+    }
+}
