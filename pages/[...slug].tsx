@@ -13,6 +13,7 @@ import ExperienciaView from "components/ExperienciaView"
 import { pathToFileURL } from "url"
 import ArchiveView from "components/ArchiveView"
 import ArticleView from "components/ArticleView"
+import SEO from "components/SEO";
 
 const RESOURCE_TYPES = ["node--quienes_somos", "node--article", "node--como_lo_hacemos", "node--que_hacemos"]
 
@@ -33,6 +34,14 @@ export default function NodePage({ resource, nodes, tags, rol, etapas, tipologia
   return (
 
     <>
+      <SEO
+        title={`TMB Internacional`}
+        description={`Transports Metropolitans de Barcelona (TMB) es el principal operador de transporte público en el área metropolitana de Barcelona, y un referente de empresa de transporte y movilidad ciudadana en España, Europa y todo el mundo.`}
+        canonicalUrl={`https://internacional.tmb.cat`}
+        ogTwitterImage={null}
+        ogType={'website'} 
+        ogImageUrl={`/media/apple-icon-180x180.png`}
+      />
       {resource.type === "node--quienes_somos" && <SomosView node={resource} />}
       {resource.type === "node--como_lo_hacemos" && <ComoView node={resource} />}
       {resource.type === "node--que_hacemos" && <QueView node={resource} />}

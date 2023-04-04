@@ -17,7 +17,6 @@ export default function HomeView ({node}) {
             text={node.field_edit} 
             logos={node.field_logo} 
             title={node.title} 
-            subtitle={node.field_subtitle}
           />
           <section className={s.internationalText}>
             <h2>{node.title}</h2>

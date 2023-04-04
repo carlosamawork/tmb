@@ -16,6 +16,10 @@
         font-style: normal;
         line-height: 2;
         color: #8d8d8d;
+        @media(max-width: 990px){
+            font-size: 16px;
+            line-height: 1.5;
+        }
     }
 }
 
@@ -29,6 +33,9 @@
     color: var(--color-red);
     display: flex;
     margin: 22px 0;
+    @media(max-width: 990px){
+        margin: 10px 0;
+    }
     img{
         width: 28px;
         height: 28px;
@@ -42,5 +49,9 @@
         font-style: normal;
         line-height: 1.6;
         color: var(--color-red);
+        @media(max-width: 990px){
+            font-size: 16px;
+            line-height: 1.5;
+        }
     }
 }

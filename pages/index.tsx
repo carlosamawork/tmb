@@ -5,19 +5,20 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params"
 import { drupal } from "lib/drupal"
 import { SERVER_PROPS_ID } from "next/dist/shared/lib/constants"
 import HomeView from "components/HomeView"
+import SEO from "components/SEO"
 
 export default function IndexPage({ node }) {
   console.log(node)
   return (
     <>
-      {/* <SEO
-        title={`OWL`}
-        description={`OWL is a Barcelona-based design studio led by Alfredo Lopez, which designs and manufactures unique furniture and objects, mainly but not exclusively in wood.`}
-        canonicalUrl={`https://owlfurnitureandobjects.com/`}
-        ogTwitterImage={posts.images[0].image}
+      <SEO
+        title={`TMB Internacional`}
+        description={`Transports Metropolitans de Barcelona (TMB) es el principal operador de transporte público en el área metropolitana de Barcelona, y un referente de empresa de transporte y movilidad ciudadana en España, Europa y todo el mundo.`}
+        canonicalUrl={`https://internacional.tmb.cat`}
+        ogTwitterImage={null}
         ogType={'website'} 
         ogImageUrl={`/media/apple-icon-180x180.png`}
-      /> */}
+      />
  
       <main>
         <HomeView node={node} ></HomeView>

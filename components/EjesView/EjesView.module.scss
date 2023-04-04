@@ -4,11 +4,19 @@
     padding: 134px 36px 134px;
     width: 100%;
 
+    @media(max-width: 990px){
+        padding: 57px 15px 57px; 
+    }
+
     h2{
         font-size: 45px;
         font-weight: 500;
         line-height: 1;
         margin-bottom: 29px;
+        @media(max-width: 990px){
+            font-size: 36px;
+            line-height: 1.1;
+        }
     }
 
     .gridSection{
@@ -16,6 +24,11 @@
         grid-template-columns: 1fr 1fr;
         grid-gap: 55px;
         column-gap: clamp(55px, 10vw, 151px);
+        @media(max-width: 990px){
+            grid-template-columns: 1fr;
+            grid-gap: 24px;
+            column-gap: clamp(24px, 10vw, 151px); 
+        }
         
         h3{
             font-size: 35px;
@@ -23,6 +36,10 @@
             color: var(--color-red);
             line-height: 1.29;
             margin-bottom: 9px;
+            @media(max-width: 990px){
+                font-size: 24px;
+                line-height: 1.33;
+            }
         }
 
         p{
@@ -31,6 +48,10 @@
             font-stretch: normal;
             font-style: normal;
             line-height: 1.6;
+            @media(max-width: 990px){
+                font-size: 16px;
+                line-height: 1.38;
+            }
         }
 
         

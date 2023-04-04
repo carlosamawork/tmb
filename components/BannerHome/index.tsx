@@ -7,7 +7,7 @@ import myLoader from "components/Loader";
 import s from "./BannerHome.module.scss"
 
 
-export default function BannerHome ({ image, logos, title, subtitle, text }) {
+export default function BannerHome ({ image, logos, title, text }) {
     console.log(image)
     const logosRef = useRef([])
     return (
@@ -24,7 +24,6 @@ export default function BannerHome ({ image, logos, title, subtitle, text }) {
 
             <div className={s.content}>
                 <div className={s.contentText}>
-                    <p>{subtitle}</p>
                     <h1>{title}</h1>
                     <div className={s.textBanner} dangerouslySetInnerHTML={{ __html: text.value}}>
                     </div>

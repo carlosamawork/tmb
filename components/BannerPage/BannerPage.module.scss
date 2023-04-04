@@ -3,6 +3,10 @@
     width: 100%;
     position: relative;    
     margin-top: 143px;
+
+    @media(max-width: 990px){
+        margin-top: 0;
+    }
     .veilOpacity{
         position: absolute;
         height: 100%;
@@ -22,6 +26,12 @@
         img{
             min-height: 100%;
             min-width: 100%;
+            max-width: unset;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     }
 
@@ -38,29 +48,49 @@
         grid-gap: 69px;
         color: white;
         z-index: 5;
+        @media(max-width: 990px){
+            grid-template-columns: 1fr;
+            padding: 21px 15px;
+        }
         .contentText{
             width: 100%;
             p{
-               font-size: 20px;
-               line-height: 1.1;
-               font-weight: 500;
-               margin-bottom: 13px; 
+                font-size: 20px;
+                line-height: 1.1;
+                font-weight: 500;
+                margin-bottom: 13px; 
+                @media(max-width: 990px){
+                    text-align: center;
+                    margin-bottom: 0;
+                }
             }
             h1{
                 font-size: 70px;
                 line-height: 0.93;
                 font-weight: 500;
                 margin-bottom: 17px;
+                @media(max-width: 990px){
+                    font-size: 36px;
+                    line-height: 1.11;
+                    text-align: center;
+                }
             }
 
         }
 
         .textBanner{
             width: 80%;
+            @media(max-width: 990px){
+                width: 100%;
+            }
             p{
                 font-size: 24px;
                 line-height: 1.46;
                 font-weight: normal;
+                @media(max-width: 990px){
+                    font-size: 16px;
+                    line-height: 1.1;
+                }
             }
         }
 

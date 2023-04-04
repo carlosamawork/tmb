@@ -13,10 +13,18 @@ export default function SomosText ({title, text, background, foto}) {
 
     useEffect(() => {
       if(background !== undefined){
-        setStyleBackground({
-          backgroundColor: background,
-          paddingBottom: '134px',
-        })
+        if(window.innerWidth > 990){
+          setStyleBackground({
+            backgroundColor: background,
+            paddingBottom: '134px',
+          })
+        } else{
+          setStyleBackground({
+            backgroundColor: background,
+            paddingBottom: '57px',
+          })
+        }
+        
       } 
     }, [])
     

@@ -12,6 +12,10 @@
         font-style: normal;
         line-height: 1;
         margin-bottom: 37px;
+        @media(max-width: 990px){
+            font-size: 36px;
+            line-height: 1.11;
+        }
     }
     h3{
         display: flex;
@@ -21,6 +25,10 @@
         align-items: center;
         color: var(--color-red);
         margin-bottom: 10px;
+        @media(max-width: 990px){
+            font-size: 24px;
+            line-height: 1.11;
+        }
         img{
             margin-right: 12px;
             width: 55px;
@@ -34,5 +42,9 @@
         font-stretch: normal;
         font-style: normal;
         line-height: 1.6;
+        @media(max-width: 990px){
+            font-size: 16px;
+            line-height: 1.5;
+        }
     }
 }

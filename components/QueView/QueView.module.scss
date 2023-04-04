@@ -8,11 +8,18 @@
     font-stretch: normal;
     font-style: normal;
     line-height: 1.47;
-
+    @media(max-width: 990px){
+        padding: 57px 15px 57px;
+    }
     .bodyText{
         width: 70%;
         margin-bottom: 21px;
         margin-top: 21px;
+        @media(max-width: 990px){
+            width: 100%;
+            font-size: 24px;
+            line-height: 1.33;
+        }
     }
 
 
@@ -22,5 +29,8 @@
     max-width: 1320px;
     margin: auto;
     padding: 18px 36px;
+    @media(max-width: 990px){
+        padding: 18px 15px 18px;
+    }
       
 }
