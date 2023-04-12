@@ -11,7 +11,7 @@ import ModosContent from "components/ModosContent";
 export default function ModosView ({node}) {
     const router = useRouter();
     const myParam = router.query.index;
-    const [index, setIndex] = useState(myParam ? myParam : 0);
+    const [index, setIndex] = useState(myParam ? parseInt(myParam.toString()) : 0);
     console.log(node)
     return (
         <>

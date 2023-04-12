@@ -11,8 +11,8 @@ import DescarContent from "components/DescarContent";
 export default function DescarbonizacionView ({node}) {
     const router = useRouter();
     const myParam = router.query.index;
-    const [index, setIndex] = useState(myParam ? myParam : 0);
-    console.log(node)
+    const [index, setIndex] = useState(myParam ? parseInt(myParam.toString()) : 0);
+    console.log(node.field_lista_modos_de_transporte)
     return (
         <>
             <BannerPage title={node.title} subtitle={node.field_subtitle} image={node.field_banner_background} text={node.body} />
