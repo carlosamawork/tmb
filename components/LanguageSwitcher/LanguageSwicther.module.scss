@@ -1,0 +1,26 @@
+.languageSwitcher{
+    position: absolute;
+    background-color: black;
+    width: auto;
+    height: auto;
+    display: none !important;
+    top: 25px;
+    left: 0;
+    padding: 10px;
+    li{
+        margin: 0px !important;
+    }
+}
+
+.languageSwitcherOpen{
+    position: absolute;
+    background-color: black;
+    width: auto;
+    height: auto;
+    display: block !important;
+    top: 25px;
+    padding: 10px;
+    li{
+        margin: 0px !important;
+    }
+}

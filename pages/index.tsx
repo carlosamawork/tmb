@@ -6,6 +6,7 @@ import { drupal } from "lib/drupal"
 import { SERVER_PROPS_ID } from "next/dist/shared/lib/constants"
 import HomeView from "components/HomeView"
 import SEO from "components/SEO"
+import { useRouter } from "next/router"
 
 export default function IndexPage({ node }) {
   console.log(node)
@@ -27,9 +28,12 @@ export default function IndexPage({ node }) {
   )
 }
 
-export async function getServerSideProps({context}) {
-  console.log(context);
+export async function getServerSideProps(context) {
+  const path = await drupal.translatePathFromContext(context)
+  
+  console.log(path);
   const params = new DrupalJsonApiParams()
+  .addFilter("langcode", context.locale)
   .addFields("node--page", [
     "title", 
     "path", 
@@ -56,18 +60,61 @@ export async function getServerSideProps({context}) {
   ])
 
   // Fetch the node from Drupal.
-  const node = await drupal.getResource(
-    "node--pagina_inicio",
-    "d103cb62-b4b2-4575-a929-b0dfc4ebc54e",
-    {
-      params: params.getQueryObject(),
+  if(context.locale == 'en'){
+    const node = await drupal.getResource(
+      "node--pagina_inicio",
+      "03162790-9725-4c52-bfb4-0b805d37a35f",
+      {
+        params: params.getQueryObject(),
+      }
+    )
+    return {
+      props: {
+        node,
+      },
     }
-  )
+  } else if(context.locale == 'ca'){
+    const node = await drupal.getResource(
+      "node--pagina_inicio",
+      "fe13e8da-9b0b-4bdf-960e-64bb8ddef67a",
+      {
+        params: params.getQueryObject(),
+      }
+    )
+    return {
+      props: {
+        node,
+      },
+    }
+  } else if(context.locale == 'fr'){
+    const node = await drupal.getResource(
+      "node--pagina_inicio",
+      "e5e0503e-bd19-44b4-b369-0fff8be63099",
+      {
+        params: params.getQueryObject(),
+      }
+    )
+    return {
+      props: {
+        node,
+      },
+    }
+  } else {
+    const node = await drupal.getResource(
+      "node--pagina_inicio",
+      "d103cb62-b4b2-4575-a929-b0dfc4ebc54e",
+      {
+        params: params.getQueryObject(),
+      }
+    )
+    return {
+      props: {
+        node,
+      },
+    }
+  }
+  
 
   // Pass the node as props to the HomePage.
-  return {
-    props: {
-      node,
-    },
-  }
+  
 }

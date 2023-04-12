@@ -8,6 +8,10 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  i18n: {
+    locales: ['en', 'fr', 'es', 'ca'],
+    defaultLocale: 'es',
+  },
   images: { 
     minimumCacheTTL: 60,
     domains: ['localhost', 'upbeat-shamir.104-248-128-170.plesk.page'], 

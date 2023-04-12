@@ -14,6 +14,7 @@ import { pathToFileURL } from "url"
 import ArchiveView from "components/ArchiveView"
 import ArticleView from "components/ArticleView"
 import SEO from "components/SEO";
+import { useRouter } from "next/router";
 
 const RESOURCE_TYPES = ["node--quienes_somos", "node--article", "node--como_lo_hacemos", "node--que_hacemos"]
 
@@ -67,6 +68,8 @@ export async function getServerSideProps(
   context
 ): Promise<GetStaticPropsResult<NodePageProps>> {
   const path = await drupal.translatePathFromContext(context)
+
+  console.log(path)
 
   if (!path) {
     return {

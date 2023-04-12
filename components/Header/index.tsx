@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import cn from 'clsx'
 import s from './Header.module.scss' 
+import LanguageSwitcher from "components/LanguageSwitcher"
 
 // import Cart from '@/components/Cart'
 // import SendRequest from '@/components/SendRequest'
@@ -17,6 +18,7 @@ export default function Header ({props}) {
   const logoRef = useRef(null)
 
   const [display, setDisplay] = useState(false);
+  const [displayLang, setDisplayLang] = useState(false);
 
   const [styleHeader, setStyleHeader] = useState({
     backgroundColor: router.pathname === '/' ? 'transparent' : 'white',
@@ -208,17 +210,44 @@ export default function Header ({props}) {
           <ul>
           {props.props.items.items.map((elem, index) => {
             console.log(elem)
-            return (
-              <>
-                <li
-                key={`top-menu-${index}`}
-                ref={e => {
-                  topMenuRef.current[index] = e
-                }}
-                ><Link href={elem.url}>{ elem.title }</Link></li>
-              </>
-            )}
+            
+            if(index === 2) {
+              return (
+                <>
+                  <li
+                  key={`top-menu-${index}`}
+                  ref={e => {
+                    topMenuRef.current[index] = e
+                  }}
+                  className={s.idioma}
+                  onClick={() => displayLang ? setDisplayLang(false) : setDisplayLang(true)}
+                  >{ elem.title }
+                    <LanguageSwitcher displayLang={displayLang}/>
+                  </li>
+                </>
+              )
+            } else {
+              return (
+                <>
+                  <li
+                  key={`top-menu-${index}`}
+                  ref={e => {
+                    topMenuRef.current[index] = e
+                  }}
+                  ><Link href={elem.url}>{ elem.title }</Link></li>
+                </>
+              )
+            }
+            }
           )}
+          <li
+            key={`top-menu-2`}
+            ref={e => {
+              topMenuRef.current[2] = e
+            }}>
+            
+            
+          </li>
           </ul>
         </nav>
       </div>
