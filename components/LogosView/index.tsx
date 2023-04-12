@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react"
 import Image from "next/image"
 import s from './LogosView.module.scss'
 import myLoader from "components/Loader"
+import Link from "next/link"
 
 export default function LogosView ({ title, logos }) {
 
@@ -14,7 +15,7 @@ export default function LogosView ({ title, logos }) {
                 <div className={s.logos}>
                     {logos.map((item, index) => {
                         return (
-                            <div className={s.logo}>
+                            <Link href={item.resourceIdObjMeta.title + `?index=${index}`} className={s.logo}>
                                 <Image
                                     loader={myLoader}
                                     src={item.uri.url}
@@ -22,7 +23,7 @@ export default function LogosView ({ title, logos }) {
                                     height={item.resourceIdObjMeta.height}
                                     alt={item.resourceIdObjMeta.alt}
                                 />
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>

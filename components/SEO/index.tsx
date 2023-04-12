@@ -52,7 +52,7 @@ export default function SEO ({
       <meta name="robots" content="no index, no follow" />
       <meta name="apple-mobile-web-app-status-bar-style" content="white" />
 
-
+      
 
       {/* {children} */}
     </Head>

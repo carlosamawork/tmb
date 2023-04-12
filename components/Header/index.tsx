@@ -70,11 +70,107 @@ export default function Header ({props}) {
 
       document.documentElement.style.setProperty('--headerHeight', height)
     }
-    window.addEventListener('resize', onResize)
+
+    const handleScroll = () => {
+      const scrollPosition = window.pageYOffset;
+      if (scrollPosition > 0) {
+        setStyleHeader({
+          backgroundColor: 'white',
+        })
+      
+        setStyle({
+          color:  'black',
+        })
+      
+        setStyleSvg({
+          fill:  'black',
+        })
+      } else {
+        if(window.innerWidth > 990){
+          setStyleHeader({
+            backgroundColor: router.pathname === '/' ? 'transparent' : 'white',
+          })
+        
+          setStyle({
+            color: router.pathname === '/' ? 'white' : 'black',
+          })
+        
+          setStyleSvg({
+            fill: router.pathname === '/' ? 'white' : 'black',
+          })
+        } else {
+          setStyleHeader({
+            backgroundColor: 'transparent',
+          })
+        
+          setStyle({
+            color:  'white',
+          })
+        
+          setStyleSvg({
+            fill:  'white',
+          })
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', onResize);
+
     return () => {
-      window.removeEventListener('resize', onResize)
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('scroll', handleScroll);
     }
   }, []) 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.pageYOffset;
+      if (scrollPosition > 0) {
+        setStyleHeader({
+          backgroundColor: 'white',
+        })
+      
+        setStyle({
+          color:  'black',
+        })
+      
+        setStyleSvg({
+          fill:  'black',
+        })
+      } else {
+        if(window.innerWidth > 990){
+          setStyleHeader({
+            backgroundColor: router.pathname === '/' ? 'transparent' : 'white',
+          })
+        
+          setStyle({
+            color: router.pathname === '/' ? 'white' : 'black',
+          })
+        
+          setStyleSvg({
+            fill: router.pathname === '/' ? 'white' : 'black',
+          })
+        } else {
+          setStyleHeader({
+            backgroundColor: 'transparent',
+          })
+        
+          setStyle({
+            color:  'white',
+          })
+        
+          setStyleSvg({
+            fill:  'white',
+          })
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [router])
 
   useEffect(() => {
     if(window.innerWidth > 990){
@@ -110,15 +206,18 @@ export default function Header ({props}) {
         ref={topRef}>
         <nav>
           <ul>
-          {props.props.items.items.map((elem, index) => 
-            <>
-              <li
-              key={`top-menu-${index}`}
-              ref={e => {
-                topMenuRef.current[index] = e
-              }}
-              >{ elem.title }</li>
-            </>
+          {props.props.items.items.map((elem, index) => {
+            console.log(elem)
+            return (
+              <>
+                <li
+                key={`top-menu-${index}`}
+                ref={e => {
+                  topMenuRef.current[index] = e
+                }}
+                ><Link href={elem.url}>{ elem.title }</Link></li>
+              </>
+            )}
           )}
           </ul>
         </nav>

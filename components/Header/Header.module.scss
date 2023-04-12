@@ -37,6 +37,7 @@
   align-items: center;
   width: 100%;
   z-index: 20;
+  transition: all 0.3s ease;
   @media(max-width: 1024px){
     padding: 21px 15px;
     top: 0px;

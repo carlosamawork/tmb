@@ -46,6 +46,7 @@ export default function HomeView ({node}) {
             title={node.field_title_soluciones.value} 
             text={node.field_text_soluciones.value} 
             fotos={node.field_slider_fotos} 
+            link={node.field_link_slider}
           /> 
         </>
     )

@@ -47,14 +47,15 @@ export default function Footer ({
       <div className={cn(s.preMenu, 'text-16')}>
         <nav className={s.footerMenu}>
           <ul>
-            {footerMenu.items.map((elem, index) => {                
+            {footerMenu.items.map((elem, index) => {
+              console.log(elem)                
               return(
                 <>
                   <li key={`footer-menu-${index}`}
                       ref={e => {
                         footerMenuRef.current[index] = e
                       }}>
-                        {elem.title}
+                        {index === 1 ? <Link href={elem.url} rel="noopener noreferrer" target="_blank">{elem.title}</Link>: <Link href={elem.url}>{elem.title}</Link> } 
                   </li>
                 </>
               )
@@ -71,11 +72,11 @@ export default function Footer ({
                       ref={e => {
                         socialMenuRef.current[index] = e
                       }}>
-                        <Image 
+                        <Link href={elem.url} rel="noopener noreferrer" target="_blank"><Image 
                           alt={elem.title}
                           src={'/' + elem.title + '.svg'}
                           fill
-                        />
+                        /></Link>
                   </li>
                 </>
               )
@@ -94,7 +95,9 @@ export default function Footer ({
                       ref={e => {
                         datosMenuRef.current[index] = e
                       }}>
-                      {elem.title}
+                        <Link href={elem.url} rel="noopener noreferrer" target="_blank">
+                          {elem.title}
+                        </Link>
                   </li>
                 </>
               )

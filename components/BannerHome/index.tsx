@@ -27,7 +27,7 @@ export default function BannerHome ({ image, logos, title, text }) {
                     <h1>{title}</h1>
                     <div className={s.textBanner} dangerouslySetInnerHTML={{ __html: text.value}}>
                     </div>
-                    <button><div className={s.plus}>+</div></button>
+                    <button><Link href={'/quienes-somos'}><div className={s.plus}>+</div></Link></button>
                 </div>
                 {logos ? <ul className={s.logos}>
                     {logos.map((elem, index) => {
@@ -36,6 +36,7 @@ export default function BannerHome ({ image, logos, title, text }) {
                                 ref={e => {
                                     logosRef.current[index] = e
                                 }}>
+                                <Link href={elem.resourceIdObjMeta.title + `?index=${index}`}>
                                 <figure className={s.logoImage}>
                                     <Image
                                     loader={myLoader}
@@ -48,6 +49,7 @@ export default function BannerHome ({ image, logos, title, text }) {
                                 <div className={s.description}>
                                     {elem.resourceIdObjMeta.alt}
                                 </div>
+                                </Link>
                             </li>
                         )
                     })}
@@ -58,7 +60,7 @@ export default function BannerHome ({ image, logos, title, text }) {
             <div className={s.bannerLine}>
                 <div className={s.line}>
                 </div>
-                <button><div className={s.plus}>+</div></button>
+                <button><Link href={'/que-hacemos'}><div className={s.plus}>+</div></Link></button>
             </div>
 
         </div>

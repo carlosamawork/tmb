@@ -14,10 +14,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Link from "next/link";
 
 
-export default function SliderHome ({title, text, fotos}) {
+export default function SliderHome ({title, text, fotos, link}) {
     const slideRef = useRef([])
+    console.log(link.uri.replace('internal:', ''))
 
     return (
         <>
@@ -27,7 +29,7 @@ export default function SliderHome ({title, text, fotos}) {
                     <div className={s.contentText} dangerouslySetInnerHTML={{ __html: text}}> 
                     </div>
                     <div className={s.buttonSliderHome}>
-                        <button><div className={s.plus}>+</div></button>
+                        <button><Link href={link.uri.replace('internal:', '')}><div className={s.plus}>+</div></Link></button>
                     </div>
                     
                 </div>
