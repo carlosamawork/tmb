@@ -29,9 +29,7 @@ export default function IndexPage({ node }) {
 }
 
 export async function getServerSideProps(context) {
-  const path = await drupal.translatePathFromContext(context)
-  
-  console.log(path);
+
   const params = new DrupalJsonApiParams()
   .addFilter("langcode", context.locale)
   .addFields("node--page", [

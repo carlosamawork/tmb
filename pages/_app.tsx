@@ -3,6 +3,7 @@ import { GetStaticPropsResult } from "next"
 import { DrupalNode } from "next-drupal"
 import { MainProvider }from "../contexts/Main.context"
 import Script from 'next/script'
+import Head from "next/head"
 
 import { drupal } from "lib/drupal"
 
@@ -19,26 +20,23 @@ function TMBApp ({
   Component,
   pageProps
 }) {
-  useFoucFix()
+  
   
   return (
-    <MainProvider>
-      
-      <RealViewHeight />
-      <Layout>
+    <>
+      <div dangerouslySetInnerHTML={{ __html: '<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="3308fd31-9528-4533-8868-f49c0ed16ac0" data-blockingmode="auto" type="text/javascript"></script>' }} />
+      <MainProvider>
+        
+        <RealViewHeight />
+        <Layout>
 
-        <Component 
-          {...pageProps}
-        />
-      </Layout>
-      <Script 
-        id="Cookiebot" 
-        src="https://consent.cookiebot.com/uc.js" 
-        data-cbid="3308fd31-9528-4533-8868-f49c0ed16ac0" 
-        data-blockingmode="auto" 
-        data-cookieconsent="ignore" 
-        type="text/javascript" />
-    </MainProvider>
+          <Component 
+            {...pageProps}
+          />
+        </Layout>
+        
+      </MainProvider>
+    </>
   )
 } 
 
