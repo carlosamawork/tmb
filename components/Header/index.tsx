@@ -331,6 +331,7 @@ export default function Header ({props}) {
             </ul>
           </nav>
           <div className={s.search}>
+            <Link href={'/search'}>
             <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <title>Group 3</title>
                 <defs>
@@ -345,6 +346,7 @@ export default function Header ({props}) {
                     </g>
                 </g>
             </svg>
+            </Link>
           </div>
         </div>
 
