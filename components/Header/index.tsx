@@ -330,7 +330,7 @@ export default function Header ({props}) {
               )}
             </ul>
           </nav>
-          <div className={s.search}>
+          {/* <div className={s.search}>
             <Link href={'/search'}>
             <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <title>Group 3</title>
@@ -347,7 +347,7 @@ export default function Header ({props}) {
                 </g>
             </svg>
             </Link>
-          </div>
+          </div> */}
         </div>
 
         <div className={display ? cn(s.burguer, s.change) : s.burguer} onClick={() => { display ? setDisplay(false) : setDisplay(true)}}>
