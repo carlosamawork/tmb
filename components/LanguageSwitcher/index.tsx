@@ -14,7 +14,7 @@ function LanguageSwitcher({displayLang}) {
             <button onClick={() => handleLanguageChange('es')}>Español</button>
         </li>
         <li>
-            <button onClick={() => handleLanguageChange('ca')}>Catalán</button>
+            <button onClick={() => handleLanguageChange('ca')}>Català</button>
         </li>
         <li>
             <button onClick={() => handleLanguageChange('en')}>English</button>

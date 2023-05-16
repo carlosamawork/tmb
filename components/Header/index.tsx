@@ -4,6 +4,8 @@ import Link from 'next/link'
 import cn from 'clsx'
 import s from './Header.module.scss' 
 import LanguageSwitcher from "components/LanguageSwitcher"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faUpRightFromSquare, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 // import Cart from '@/components/Cart'
 // import SendRequest from '@/components/SendRequest'
@@ -221,7 +223,7 @@ export default function Header ({props}) {
                   }}
                   className={s.idioma}
                   onClick={() => displayLang ? setDisplayLang(false) : setDisplayLang(true)}
-                  >{ elem.title }
+                  >{ elem.title } <FontAwesomeIcon icon={faCaretDown} />
                     <LanguageSwitcher displayLang={displayLang}/>
                   </li>
                 </>
@@ -234,7 +236,7 @@ export default function Header ({props}) {
                   ref={e => {
                     topMenuRef.current[index] = e
                   }}
-                  ><Link href={elem.url}>{ elem.title }</Link></li>
+                  ><Link href={elem.url} rel="noopener noreferrer" target="_blank">{ elem.title } <FontAwesomeIcon icon={faUpRightFromSquare} /></Link></li>
                 </>
               )
             }

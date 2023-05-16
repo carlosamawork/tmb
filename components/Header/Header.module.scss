@@ -22,9 +22,19 @@ $public: "/";
       
       li{
         margin-left: 18px;
+        
       }
       li:last-child{
         margin-left: 32px;
+      }
+
+      a{
+        display: flex;
+      }
+
+      svg{
+        width: 10px;
+        margin-left: 5px;
       }
     }
   }
