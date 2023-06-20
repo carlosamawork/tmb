@@ -10,7 +10,7 @@ import s from './ComoView.module.scss';
 
 
 export default function ComoView ({node}) {
-    console.log(node)
+    console.log(node.field_etapa_content);
     return (
         <>
            <BannerPage 
@@ -24,11 +24,13 @@ export default function ComoView ({node}) {
                     <h3>{node.field_text_description_big.value}</h3>
                 </div>
                 <div className="contentRight" dangerouslySetInnerHTML={{ __html: node.field_text_description_small.value}}></div>
-           </section>
-           <div className={s.gridTwoColumns}>
-            <RolesView title={node.field_title_roles.value} elements={node.field_roles} />
-            <EtapaView title={node.field_title_etapas.value} elements={node.field_etapas} />
-           </div>
+            </section>
+            <div className={s.gridTwoColumns}>
+                <RolesView title={node.field_title_roles.value} elements={node.field_roles} />
+            </div>
+            <div className={s.etapas}>
+                <EtapaView title={node.field_title_etapas.value} elements={node.field_etapa_content} />
+            </div>
 
         </>
     )

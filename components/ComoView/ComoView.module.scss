@@ -4,7 +4,8 @@
     padding: 79px 36px 120px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    grid-template-columns: 1fr;
     column-gap: clamp(30px, 10vw, 55px);
 
     @media(max-width: 990px){
@@ -15,6 +16,7 @@
     h3{
         font-size: 30px;
         line-height: 1.47;
+        width: 70%;
         @media(max-width: 990px){
             font-size: 24px;
             line-height: 1.28;
@@ -28,6 +30,7 @@
         font-stretch: normal;
         font-style: normal;
         line-height: 1.6;
+        width: 70%;
         @media(max-width: 990px){
             font-size: 16px;
             line-height: 1.5;
@@ -41,8 +44,21 @@
     padding: 0px 36px 121px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     column-gap: clamp(90px, 20vw, 174px);
+    @media(max-width: 990px){
+        display: block;
+        padding: 0px 15px 57px;
+    }
+}
+
+.etapas{
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: clamp(90px, 20vw, 174px);
+    position: relative;
+    background-color: #efefef;
+    padding: 120px 36px 80px;
     @media(max-width: 990px){
         display: block;
         padding: 0px 15px 57px;

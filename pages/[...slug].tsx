@@ -93,7 +93,7 @@ export async function getServerSideProps(
     nodes = await drupal.getResourceCollection<DrupalNode[]>("node--article", {
       params: {
         "fields[node--article]": "title,field_pais,path,field_image,field_tags,field_etapa,field_tipologia,field_rol_tmb",
-        include: "field_tags.field_icono,field_tags,field_etapa,field_tipologia,field_rol_tmb,field_image,uid",
+        include: "field_tags.field_icono,field_tags,field_etapa, field_etapa.field_icono, field_etapa.field_image, field_tipologia,field_rol_tmb,field_image,uid",
         
       }
     })
@@ -133,7 +133,7 @@ export async function getServerSideProps(
 
   if (type === "node--como_lo_hacemos") {
     params = {
-      include: "field_banner_background, uid",
+      include: "field_banner_background, uid, field_etapa_content.field_icono, field_etapa_content.field_image",
     }
   }
 
@@ -153,7 +153,7 @@ export async function getServerSideProps(
     params = {
       "fields[node--article]": "title,body,path,field_titulo_rol,field_titulo_etapa,field_banner_background,field_relacionados,field_image,field_tags,field_etapa,field_tipologia,field_rol_tmb,field_pais,field_title_relacionados",
       "fields[node--related_articles]": "title,field_related_articles",
-      include: "field_tags,field_tags.field_icono,field_banner_background,field_etapa,field_rol_tmb,field_relacionados,field_relacionados.field_related_articles.field_tags,uid,field_relacionados.field_related_articles.field_image,field_relacionados.field_related_articles.field_tags,field_relacionados.field_related_articles.field_etapa,field_relacionados.field_related_articles.field_tipologia,field_relacionados.field_related_articles.field_rol_tmb,field_relacionados.field_related_articles.field_tags.field_icono,field_relacionados.field_related_articles",
+      include: "field_tags,field_tags.field_icono,field_banner_background,field_etapa, field_etapa, field_etapa.field_icono, field_etapa.field_image, field_rol_tmb,field_relacionados,field_relacionados.field_related_articles.field_tags,uid,field_relacionados.field_related_articles.field_image,field_relacionados.field_related_articles.field_tags,field_relacionados.field_related_articles.field_etapa,field_relacionados.field_related_articles.field_tipologia,field_relacionados.field_related_articles.field_rol_tmb,field_relacionados.field_related_articles.field_tags.field_icono,field_relacionados.field_related_articles",
     }
   }
 

@@ -38,6 +38,8 @@ export default function Header ({props}) {
     color: 'black',
   })
 
+  const [styleBar, setStyleBar] = useState(null)
+
   function handleClick() {
     setDisplay(false);
   }
@@ -85,6 +87,10 @@ export default function Header ({props}) {
         setStyle({
           color:  'black',
         })
+
+        setStyleBar({
+          backgroundColor:  'black',
+        })
       
         setStyleSvg({
           fill:  'black',
@@ -113,6 +119,10 @@ export default function Header ({props}) {
         
           setStyleSvg({
             fill:  'white',
+          })
+
+          setStyleBar({
+            backgroundColor:  'white',
           })
         }
       }
@@ -192,6 +202,10 @@ export default function Header ({props}) {
     } else {
       setStyleHeader({
         backgroundColor: 'transparent',
+      })
+
+      setStyleBar({
+        color:  'white',
       })
     
       setStyle({
@@ -352,10 +366,10 @@ export default function Header ({props}) {
           </div> */}
         </div>
 
-        <div className={display ? cn(s.burguer, s.change) : s.burguer} onClick={() => { display ? setDisplay(false) : setDisplay(true)}}>
-          <span className={s.bar1}></span>
-          <span className={s.bar2}></span>
-          <span className={s.bar3}></span>
+        <div className={display ? cn(s.burguer, s.change) : s.burguer} onClick={() => { display ? setDisplay(false) : setDisplay(true);  display ? null : setStyleBar({backgroundColor: 'white'})}}>
+          <span className={s.bar1} style={styleBar}></span>
+          <span className={s.bar2} style={styleBar}></span>
+          <span className={s.bar3} style={styleBar}></span>
         </div>
       </header> 
       <div 

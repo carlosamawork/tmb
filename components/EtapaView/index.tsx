@@ -17,15 +17,40 @@ export default function EtapasView ({title, elements}) {
               <h2>{title}</h2>
               <ul className={s.listElements}>
               {elements.map((item, index) => {
-                console.log(item.processed)
+                console.log(item)
                 return(
                 <>
                   <li key={`roles-etapa-${index}`}
                     ref={e => {
                         etapaRef.current[index] = e
                   }}>
-                    <div className={s.line}></div>
-                    <Body value={item.processed} /> 
+                    <div className={s.totalCircle}>
+                      <div className={s.circle}>
+                        <Image 
+                            loader={myLoader}
+                            src={item.field_icono.uri.url}
+                            width={item.field_icono.resourceIdObjMeta.width}
+                            height={item.field_icono.resourceIdObjMeta.height}
+                            alt={item.field_icono.resourceIdObjMeta.alt}
+                        />
+                      </div>
+
+                      <div className={s.circleBig}>
+                        <Image 
+                            loader={myLoader}
+                            src={item.field_image.uri.url}
+                            width={item.field_image.resourceIdObjMeta.width}
+                            height={item.field_image.resourceIdObjMeta.height}
+                            alt={item.field_image.resourceIdObjMeta.alt}
+                        />
+                      </div>
+                    </div>
+
+                    {/* <div className={s.line}></div> */}
+                    <div className="textContent">
+                      <h3>{item.title}</h3>
+                      <Body value={item.body.processed} /> 
+                    </div>
                   </li>
                 </>
                 )
