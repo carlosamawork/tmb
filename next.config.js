@@ -15,7 +15,7 @@ const nextConfig = {
   },
   images: { 
     minimumCacheTTL: 60,
-    domains: ['localhost', 'upbeat-shamir.104-248-128-170.plesk.page'], 
+    domains: ['localhost', 'https://tmb.ama.work'], 
     formats: [
       'image/avif', 
       'image/webp',
