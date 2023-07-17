@@ -12,9 +12,9 @@ import App from 'next/app'
 
 import Layout  from 'components/layout'
 import RealViewHeight from '../components/RealViewHeight'
-import useFoucFix from '../hooks/use-fouc-fix'
  
 import '../styles/main.scss'
+import { useRouter } from "next/router"
 
 function TMBApp ({
   Component,
@@ -43,6 +43,7 @@ function TMBApp ({
 
 TMBApp.getInitialProps = async(AppContext) => {
   const appProps = await App.getInitialProps(AppContext)
+  
 
   const items = await drupal.getMenu("top-menu")
 

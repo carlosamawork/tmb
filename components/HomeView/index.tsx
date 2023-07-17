@@ -9,7 +9,7 @@ import s from './HomeView.module.scss';
 
 
 export default function HomeView ({node}) {
-  console.log(node)
+    console.log(node)
     return (
         <>
           <BannerHome 

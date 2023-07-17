@@ -19,6 +19,8 @@ export default function Header ({props}) {
   const layerRef = useRef(null)
   const logoRef = useRef(null)
 
+  console.log(props.props)
+
   const [display, setDisplay] = useState(false);
   const [displayLang, setDisplayLang] = useState(false);
 
@@ -225,7 +227,7 @@ export default function Header ({props}) {
         <nav>
           <ul>
           {props.props.items.items.map((elem, index) => {
-            console.log(elem)
+            
             
             if(index === 2) {
               return (
