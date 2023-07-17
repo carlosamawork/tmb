@@ -41,18 +41,28 @@ function TMBApp ({
 } 
 
 
-TMBApp.getInitialProps = async(appContext) => {
-  const appProps = await App.getInitialProps(appContext)
+TMBApp.getInitialProps = async(AppContext) => {
+  const appProps = await App.getInitialProps(AppContext)
 
-  const items = await drupal.getMenu("top-menu")
+  const items = await drupal.getMenu("top-menu", {
+    locale: AppContext.router.locale
+  })
 
-  const mainMenu = await drupal.getMenu("menu-principal")
+  const mainMenu = await drupal.getMenu("menu-principal", {
+    locale: AppContext.router.locale
+  })
 
-  const footerMenu = await drupal.getMenu("footer")
+  const footerMenu = await drupal.getMenu("footer", {
+    locale: AppContext.router.locale
+  })
 
-  const socialMenu = await drupal.getMenu("social-menu")
+  const socialMenu = await drupal.getMenu("social-menu", {
+    locale: AppContext.router.locale
+  })
 
-  const datosMenu = await drupal.getMenu("menu-datos")
+  const datosMenu = await drupal.getMenu("menu-datos", {
+    locale: AppContext.router.locale
+  })
 
   const copyright = await drupal.getResource(
     "block_content--basic",

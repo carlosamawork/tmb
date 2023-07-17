@@ -73,7 +73,7 @@ export default function ModosContent ({data}) {
                     </div>
                 </div>
             </section>
-            <section className={s.projectModos}>
+            {data.field_title_project && <section className={s.projectModos}>
                 <div className={s.maxWidthProject}>
                     <div className={s.firstCol}>
                         <h3>{data.field_title_project}</h3>
@@ -91,7 +91,8 @@ export default function ModosContent ({data}) {
                     </div>
                     <div className={s.secondCol} dangerouslySetInnerHTML={{__html: data.field_texto_project_body.value}}></div>
                 </div>
-            </section>
+            </section>}
+            
         </>
     )
 

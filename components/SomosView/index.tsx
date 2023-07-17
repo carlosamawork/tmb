@@ -15,18 +15,18 @@ export default function SomosView ({node}) {
             <BannerPage 
                 image={node.field_banner_background} 
                 title={node.field_banner_background.resourceIdObjMeta.alt} 
-                subtitle={node.field_subtitulo.value}
+                subtitle={node.field_subtitulo ? node.field_subtitulo.value : undefined}
                 text={undefined}
             />
             <SomosText 
-                title={node.field_title_introduccion.value} 
-                text={node.field_text_introduccion.value}             
+                title={node.field_title_introduccion ? node.field_title_introduccion.value : undefined} 
+                text={node.field_text_introduccion ? node.field_text_introduccion.value : undefined}             
                 foto={node.field_image_introduccion}
                 background='#efefef' 
             />
             <SomosText 
-                title={node.field_title_grupo.value} 
-                text={node.field_text_grupo.value}
+                title={node.field_title_grupo ? node.field_title_grupo.value : undefined} 
+                text={node.field_text_grupo ? node.field_text_grupo.value : undefined}
                 foto={undefined}
                 background={undefined} 
             />
@@ -35,7 +35,7 @@ export default function SomosView ({node}) {
                 datos={node.field_circles_grupo}
             />
             <EjesView
-                title={node.field_title_ejes.value}
+                title={node.field_title_ejes ? node.field_title_ejes.value : undefined}
                 elements={node.field_ejes}
             />
 
