@@ -153,7 +153,7 @@ export async function getServerSideProps(
     params = {
       "fields[node--article]": "title,body,path,field_titulo_rol,field_titulo_etapa,field_banner_background,field_relacionados,field_image,field_tags,field_etapa,field_tipologia,field_rol_tmb,field_pais,field_title_relacionados",
       "fields[node--related_articles]": "title,field_related_articles",
-      include: "field_tags,field_tags.field_icono,field_banner_background,field_etapa, field_etapa, field_etapa.field_icono, field_etapa.field_image, field_rol_tmb,field_relacionados,field_relacionados.field_related_articles.field_tags,uid,field_relacionados.field_related_articles.field_image,field_relacionados.field_related_articles.field_tags,field_relacionados.field_related_articles.field_etapa,field_relacionados.field_related_articles.field_tipologia,field_relacionados.field_related_articles.field_rol_tmb,field_relacionados.field_related_articles.field_tags.field_icono,field_relacionados.field_related_articles",
+      include: "field_tags,field_tags.field_icono,field_banner_background,field_etapa, field_rol_tmb,field_relacionados,field_relacionados.field_related_articles.field_tags,uid,field_relacionados.field_related_articles.field_image,field_relacionados.field_related_articles.field_tags,field_relacionados.field_related_articles.field_etapa,field_relacionados.field_related_articles.field_tipologia,field_relacionados.field_related_articles.field_rol_tmb,field_relacionados.field_related_articles.field_tags.field_icono,field_relacionados.field_related_articles",
     }
   }
 
