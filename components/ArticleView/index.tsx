@@ -12,7 +12,7 @@ import ArchiveSection from "components/ArchiveSection";
 
 export default function ArticleView ({node}) {
     const etapaRef = useRef([]);
-    console.log(node.field_relacionados);
+    console.log(node.field_etapa);
 
     
 
@@ -32,10 +32,13 @@ export default function ArticleView ({node}) {
                         <p><small>{node.field_titulo_rol.value}</small></p>
                         <h3>{node.field_rol_tmb.name}</h3>
                     </div>
-                    <div className={s.etapa}>
+                    {node.field_etapa ? <div className={s.etapa}>
                         <p><small>{node.field_titulo_etapa.value}</small></p>
-                        <h3>{node.field_etapa.name}</h3>
-                    </div>
+                        {node.field_etapa.map((element, index) =>{
+                            console.log(element.name);
+                            return(<h3>{element.name}</h3>);
+                        })}
+                    </div> : undefined}
                 </aside>
                 <article>
                     <div className={s.tagDiv}>

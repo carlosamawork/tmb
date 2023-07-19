@@ -38,7 +38,10 @@ export default function ArchiveView ({page, nodes, tags, tipologia, rol, etapa})
 
     useEffect(() => {
       if(selectedEtapa.id !== 'etapa_0'){
-        setSelectedNodes(selectedNodes.filter(item => item.field_etapa.name == selectedEtapa.name))
+        setSelectedNodes(selectedNodes.filter((item) => {
+          // item.field_etapa.filter(etapa => etapa.name == selectedEtapa.name).length > 0
+          console.log(item);
+        }))
       } 
     }, [selectedEtapa])
 

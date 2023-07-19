@@ -26,16 +26,18 @@ export default function ArchiveSection ({nodes}) {
             
             <div className={s.article}>
                 <div className={s.articleImage}>
+                    {item.field_image ?
                     <Image
                         loader={myLoader}
                         src={item.field_image.uri.url}
                         width={item.field_image.resourceIdObjMeta.width}
                         height={item.field_image.resourceIdObjMeta.height}
                         alt={item.field_image.resourceIdObjMeta.alt}
-                    />
+                    /> : undefined}
+                    
                 </div>
                 <div className={s.tag}>
-                    {item.field_tags.map((elem, index) => {
+                    {item.field_tags ? item.field_tags.map((elem, index) => {
                         return(
                             <>
 
@@ -49,7 +51,7 @@ export default function ArchiveSection ({nodes}) {
                                 <p><small>{elem.name}</small></p>
                             </>
                         )
-                    })}
+                    }): undefined}
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.field_pais.value}</p>
