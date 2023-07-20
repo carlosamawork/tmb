@@ -44,10 +44,9 @@ function TMBApp ({
 TMBApp.getInitialProps = async(AppContext) => {
   const appProps = await App.getInitialProps(AppContext)
 
-  
 
   appProps.pageProps = {
-    
+   
   }
 
   return { ...appProps }

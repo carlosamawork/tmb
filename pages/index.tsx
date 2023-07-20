@@ -58,24 +58,24 @@ export async function getServerSideProps(context) {
   ])
 
   const items = await drupal.getMenu("top-menu", 
-  {locale: context.locale})
+  {locale: context.locale == 'es' ? "" : context.locale})
 
   const mainMenu = await drupal.getMenu("menu-principal", 
-  {locale: context.locale})
+  {locale: context.locale == 'es' ? "" : context.locale})
 
   const footerMenu = await drupal.getMenu("footer", 
-  {locale: context.locale})
+  {locale: context.locale == 'es' ? "" : context.locale})
 
   const socialMenu = await drupal.getMenu("social-menu", 
-  {locale: context.locale})
+  {locale: context.locale == 'es' ? "" : context.locale})
 
   const datosMenu = await drupal.getMenu("menu-datos", 
-  {locale: context.locale})
+  {locale: context.locale == 'es' ? "" : context.locale})
 
   const copyright = await drupal.getResource(
     "block_content--basic",
     "2d98f35c-36e1-425a-b8c9-e90fbfa796b6", 
-    {locale: context.locale}
+    {locale: context.locale == 'es' ? "" : context.locale}
   )
 
   // Fetch the node from Drupal.

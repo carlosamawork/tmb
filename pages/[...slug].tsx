@@ -1,6 +1,6 @@
 import { GetStaticPathsResult, GetStaticPropsResult } from "next"
 import Head from "next/head"
-import { DrupalNode, DrupalTaxonomyTerm } from "next-drupal"
+import { DrupalMenuLinkContent, DrupalNode, DrupalTaxonomyTerm } from "next-drupal"
 
 import { drupal } from "lib/drupal"
 import normalize from 'json-api-normalizer';
@@ -24,7 +24,14 @@ interface NodePageProps {
   tags: DrupalTaxonomyTerm,
   rol: DrupalTaxonomyTerm,
   etapas: DrupalTaxonomyTerm,
-  tipologia: DrupalTaxonomyTerm
+  tipologia: DrupalTaxonomyTerm,
+  items: object,
+  mainMenu: object,
+  footerMenu: object,
+  socialMenu: object,
+  datosMenu: object,
+  copyright: object
+
 }
 
 export default function NodePage({ resource, nodes, tags, rol, etapas, tipologia }: NodePageProps) {
@@ -69,23 +76,21 @@ export async function getServerSideProps(
 ): Promise<GetStaticPropsResult<NodePageProps>> {
   const path = await drupal.translatePathFromContext(context)
 
-  const items = await drupal.getMenu("top-menu", {locale: context.locale})
+  const items = await drupal.getMenu("top-menu", {locale: context.locale == 'es' ? "" : context.locale})
 
-  const mainMenu = await drupal.getMenu("menu-principal", {locale: context.locale})
+  const mainMenu = await drupal.getMenu("menu-principal", {locale: context.locale == 'es' ? "" : context.locale})
 
-  const footerMenu = await drupal.getMenu("footer", {locale: context.locale})
+  const footerMenu = await drupal.getMenu("footer", {locale: context.locale == 'es' ? "" : context.locale})
 
-  const socialMenu = await drupal.getMenu("social-menu", {locale: context.locale})
+  const socialMenu = await drupal.getMenu("social-menu", {locale: context.locale == 'es' ? "" : context.locale})
 
-  const datosMenu = await drupal.getMenu("menu-datos", {locale: context.locale})
+  const datosMenu = await drupal.getMenu("menu-datos", {locale: context.locale == 'es' ? "" : context.locale})
 
   const copyright = await drupal.getResource(
     "block_content--basic",
     "2d98f35c-36e1-425a-b8c9-e90fbfa796b6", 
-    {locale: context.locale}
+    {locale: context.locale == 'es' ? "" : context.locale}
   )
-
-  console.log(path)
 
   if (!path) {
     return {
@@ -112,7 +117,7 @@ export async function getServerSideProps(
         include: "field_tags.field_icono, field_tipologia, field_etapa, field_tags,   field_rol_tmb, field_image,uid",
         
       },
-      locale: context.locale
+      locale: context.locale == 'es' ? "" : context.locale
     })
     console.log(nodes[0].field_etapa);
     tags = await drupal.getResourceCollection<DrupalTaxonomyTerm[]>("taxonomy_term--tags", {
@@ -121,28 +126,28 @@ export async function getServerSideProps(
         include: "field_icono, field_icono_inactivo",
         
       },
-      locale: context.locale
+      locale: context.locale == 'es' ? "" : context.locale
     })
 
     etapas = await drupal.getResourceCollection<DrupalTaxonomyTerm[]>("taxonomy_term--etapa", {
       params: {
         "fields[taxonomy_term--etapa]": "name",  
       },
-      locale: context.locale
+      locale: context.locale == 'es' ? "" : context.locale
     })
 
     tipologia = await drupal.getResourceCollection<DrupalTaxonomyTerm[]>("taxonomy_term--tipologia_del_proyecto", {
       params: {
         "fields[taxonomy_term--tipologia_del_proyecto]": "name",  
       },
-      locale: context.locale
+      locale: context.locale == 'es' ? "" : context.locale
     })
 
     rol = await drupal.getResourceCollection<DrupalTaxonomyTerm[]>("taxonomy_term--rol", {
       params: {
         "fields[taxonomy_term--rol]": "name",
       },
-      locale: context.locale
+      locale: context.locale == 'es' ? "" : context.locale
     })
   } 
 
