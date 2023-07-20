@@ -12,7 +12,6 @@ import { Body } from "components/Body";
 
 
 export default function ExperienciaContent ({data}) {
-    console.log(data)
     return (
         <>
             <section className={s.contentModos}>

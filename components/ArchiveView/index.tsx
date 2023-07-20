@@ -12,7 +12,8 @@ import ArchiveFilter from "components/ArchiveFilter";
 
 export default function ArchiveView ({page, nodes, tags, tipologia, rol, etapa}) {
     const etapaRef = useRef([]);
-    console.log(nodes);
+    console.log(page);
+    console.log(nodes)
 
     const [selectedNodes, setSelectedNodes] = useState(nodes)
     const [initTipologia] = useState({name: 'Tipología del Proyecto', id: 'tipo_0'})
@@ -40,7 +41,6 @@ export default function ArchiveView ({page, nodes, tags, tipologia, rol, etapa})
       if(selectedEtapa.id !== 'etapa_0'){
         setSelectedNodes(selectedNodes.filter((item) => {
           // item.field_etapa.filter(etapa => etapa.name == selectedEtapa.name).length > 0
-          console.log(item);
         }))
       } 
     }, [selectedEtapa])

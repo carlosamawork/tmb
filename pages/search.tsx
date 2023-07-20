@@ -26,7 +26,6 @@ export default function Search() {
             locale: router.locale,
             defaultLocale: router.defaultLocale,
         })
-        console.log(index);
         
 
         setResults(index)

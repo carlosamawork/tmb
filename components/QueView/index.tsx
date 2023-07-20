@@ -10,7 +10,6 @@ import LogosView from "components/LogosView";
 
 
 export default function QueView ({node}) {
-    console.log(node)
     return (
         <>
            <BannerPage 

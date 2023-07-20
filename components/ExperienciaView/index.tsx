@@ -12,7 +12,6 @@ export default function ExperienciaView ({node}) {
     const router = useRouter();
     const myParam = router.query.index;
     const [index, setIndex] = useState(myParam ? parseInt(myParam.toString()) : 0);
-    console.log(node)
     return (
         <>
             <BannerPage title={node.title} subtitle={node.field_subtitle} image={node.field_banner_background} text={node.body} />

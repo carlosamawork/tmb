@@ -17,7 +17,6 @@ export default function EtapasView ({title, elements}) {
               <h2>{title}</h2>
               <ul className={s.listElements}>
               {elements.map((item, index) => {
-                console.log(item)
                 return(
                 <>
                   <li key={`roles-etapa-${index}`}

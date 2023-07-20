@@ -18,8 +18,8 @@ export default function Header ({props}) {
   const mainMenuRef = useRef([])
   const layerRef = useRef(null)
   const logoRef = useRef(null)
+  console.log(props.props.items)
 
-  console.log(props.props)
 
   const [display, setDisplay] = useState(false);
   const [displayLang, setDisplayLang] = useState(false);
@@ -226,7 +226,7 @@ export default function Header ({props}) {
         ref={topRef}>
         <nav>
           <ul>
-          {props.props.items.items.map((elem, index) => {
+          {props.props.items?.items.map((elem, index) => {
             
             
             if(index === 2) {
@@ -300,7 +300,7 @@ export default function Header ({props}) {
         <div className={display ? cn(s.menuSection, s.openMenu) : s.menuSection} >
           <nav className={s.mainMenu}>
             <ul>
-              {props.props.mainMenu.tree.map((elem, index) =>
+              {props.props.mainMenu?.tree.map((elem, index) =>
                 {
                   let arr = elem.url.replace('/web', '');
                   if(index !== 1) {

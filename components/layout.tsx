@@ -5,7 +5,7 @@ import TransitionProvider from './Transition'
 export default function Layout ({ 
   children
 }) {
-  console.log(children);
+  console.log(children)
   return (
     <>
       <Header props={children} />

@@ -29,7 +29,7 @@ export default function IndexPage({ node }) {
 }
 
 export async function getServerSideProps(context) {
-  console.log(context.locale);
+
   const params = new DrupalJsonApiParams()
   .addFilter("langcode", context.locale)
   .addFields("node--page", [
@@ -57,6 +57,27 @@ export async function getServerSideProps(context) {
     "field_slider_fotos"
   ])
 
+  const items = await drupal.getMenu("top-menu", 
+  {locale: context.locale})
+
+  const mainMenu = await drupal.getMenu("menu-principal", 
+  {locale: context.locale})
+
+  const footerMenu = await drupal.getMenu("footer", 
+  {locale: context.locale})
+
+  const socialMenu = await drupal.getMenu("social-menu", 
+  {locale: context.locale})
+
+  const datosMenu = await drupal.getMenu("menu-datos", 
+  {locale: context.locale})
+
+  const copyright = await drupal.getResource(
+    "block_content--basic",
+    "2d98f35c-36e1-425a-b8c9-e90fbfa796b6", 
+    {locale: context.locale}
+  )
+
   // Fetch the node from Drupal.
   if(context.locale == 'en'){
     const node = await drupal.getResource(
@@ -69,6 +90,12 @@ export async function getServerSideProps(context) {
     return {
       props: {
         node,
+        items,
+        mainMenu,
+        footerMenu,
+        socialMenu,
+        datosMenu,
+        copyright
       },
     }
   } else if(context.locale == 'ca'){
@@ -82,6 +109,12 @@ export async function getServerSideProps(context) {
     return {
       props: {
         node,
+        items,
+        mainMenu,
+        footerMenu,
+        socialMenu,
+        datosMenu,
+        copyright
       },
     }
   } else if(context.locale == 'fr'){
@@ -95,6 +128,12 @@ export async function getServerSideProps(context) {
     return {
       props: {
         node,
+        items,
+        mainMenu,
+        footerMenu,
+        socialMenu,
+        datosMenu,
+        copyright
       },
     }
   } else {
@@ -108,6 +147,12 @@ export async function getServerSideProps(context) {
     return {
       props: {
         node,
+        items,
+        mainMenu,
+        footerMenu,
+        socialMenu,
+        datosMenu,
+        copyright
       },
     }
   }

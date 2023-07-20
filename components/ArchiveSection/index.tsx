@@ -11,17 +11,17 @@ import BannerPage from "components/BannerPage";
 
 export default function ArchiveSection ({nodes}) {
     const articleRef = useRef([]);
-    console.log(nodes);
+
 
     return (
         <>
          {nodes.map((item, index) => {
-            console.log(item)
+
 
             return (
             <>
             <Link
-                href={item.path.alias}
+                href={item.path ? item.path.alias : '#'}
             >
             
             <div className={s.article}>
@@ -54,7 +54,7 @@ export default function ArchiveSection ({nodes}) {
                     }): undefined}
                 </div>
                 <h3>{item.title}</h3>
-                <p>{item.field_pais.value}</p>
+                <p>{item.field_pais?.value}</p>
 
             </div>
             </Link>

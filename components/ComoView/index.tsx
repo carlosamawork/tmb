@@ -10,7 +10,6 @@ import s from './ComoView.module.scss';
 
 
 export default function ComoView ({node}) {
-    console.log(node.field_etapa_content);
     return (
         <>
            <BannerPage 

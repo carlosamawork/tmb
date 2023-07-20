@@ -47,8 +47,7 @@ export default function Footer ({
       <div className={cn(s.preMenu, 'text-16')}>
         <nav className={s.footerMenu}>
           <ul>
-            {footerMenu.items.map((elem, index) => {
-              console.log(elem)                
+            {footerMenu?.items.map((elem, index) => {
               return(
                 <>
                   <li key={`footer-menu-${index}`}
@@ -65,7 +64,7 @@ export default function Footer ({
 
         <nav className={s.socialMenu}>
           <ul>
-            {socialMenu.items.map((elem, index) => {                
+            {socialMenu?.items.map((elem, index) => {                
               return(
                 <>
                   <li key={`footer-social-${index}`}
@@ -88,7 +87,7 @@ export default function Footer ({
       <div className={s.bottomMenu}>
         <nav className={s.dataMenu}>
           <ul>
-            {datosMenu.items.map((elem, index) => {                
+            {datosMenu?.items.map((elem, index) => {                
               return(
                 <>
                   <li key={`footer-datos-menu-${index}`}
@@ -104,7 +103,7 @@ export default function Footer ({
             })}
           </ul>
         </nav>
-        <div className={s.copyright} dangerouslySetInnerHTML={{ __html: copyright.body.value}}>
+        <div className={s.copyright} dangerouslySetInnerHTML={{ __html: copyright?.body.value}}>
         </div>
       </div>
       

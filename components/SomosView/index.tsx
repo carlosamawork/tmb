@@ -9,7 +9,6 @@ import EjesView from "components/EjesView";
 
 
 export default function SomosView ({node}) {
-    console.log(node)
     return (
         <>
             <BannerPage 

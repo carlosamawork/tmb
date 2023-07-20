@@ -20,7 +20,6 @@ import 'swiper/css/scrollbar';
 
 
 export default function DescarContent ({data}) {
-    console.log(data)
     return (
         <>
             <section className={s.contentModos}>

@@ -11,7 +11,6 @@ const options: HTMLReactParserOptions = { replace: (domNode) => {
         
         if(domNode instanceof Element && domNode.name === "img") {
             const { src, alt, width, height } = domNode.attribs
-            console.log(width)
             return (
                 <Image
                     loader={myLoader}

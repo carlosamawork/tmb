@@ -5,6 +5,7 @@ import s from "./BannerPage.module.scss"
 
 
 export default function BannerPage ({ image, title, subtitle, text}) {
+    console.log(image);
 
     return (
         <div className={s.bannerPage}>

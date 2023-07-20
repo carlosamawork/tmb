@@ -19,7 +19,6 @@ import Link from "next/link";
 
 export default function SliderHome ({title, text, fotos, link}) {
     const slideRef = useRef([])
-    console.log(link.uri.replace('internal:', ''))
 
     return (
         <>
