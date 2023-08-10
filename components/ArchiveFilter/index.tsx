@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { Listbox } from '@headlessui/react'
 import Selector from "components/Selector";
 import Checkboxer from "components/Checkboxer";
+import useTranslation from 'next-translate/useTranslation';
 
 
 export default function ArchiveFilter (
@@ -30,9 +31,10 @@ export default function ArchiveFilter (
     }
     
     ) {
+    const { t } = useTranslation('common');
     return (
         <div className={s.filterSection}>
-            <h3 className={s.title}>Filtrar búsqueda</h3>
+            <h3 className={s.title}>{t('filtrar')}</h3>
 
             <div className={s.form}>
                 <div className={s.tags}>

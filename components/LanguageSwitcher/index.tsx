@@ -5,8 +5,9 @@ function LanguageSwitcher({displayLang}) {
   const router = useRouter()
 
   const handleLanguageChange = (lang) => {
-    router.push(router.asPath, router.asPath, { locale: lang })
-  }
+    const newPath = router.asPath;
+    window.location.href = `/${lang}${newPath}`;
+  };
 
   return (
     <ul className={displayLang ? s.languageSwitcherOpen : s.languageSwitcher}>

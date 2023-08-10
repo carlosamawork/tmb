@@ -113,8 +113,8 @@ export async function getServerSideProps(
     }
     nodes = await drupal.getResourceCollection<DrupalNode[]>("node--article", {
       params: {
-        "fields[node--article]": "title,field_pais,path,field_image,field_tags, field_etapa, field_tipologia,field_rol_tmb",
-        include: "field_tags.field_icono, field_tipologia, field_etapa, field_tags,   field_rol_tmb, field_image,uid",
+        "fields[node--article]": "title, field_pais,path,field_image,field_tags,field_etapa,field_tipologia,field_rol_tmb",
+        include: "field_tags.field_icono,field_tipologia,field_etapa,field_tags,field_rol_tmb,field_image,uid",
         
       },
       locale: context.locale == 'es' ? "" : context.locale

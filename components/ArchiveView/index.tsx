@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import useTranslation from 'next-translate/useTranslation';
 import Image from "next/image";
 import { useRouter } from 'next/router'
 import parse from "html-react-parser"
@@ -12,13 +13,14 @@ import ArchiveFilter from "components/ArchiveFilter";
 
 export default function ArchiveView ({page, nodes, tags, tipologia, rol, etapa}) {
     const etapaRef = useRef([]);
+    const { t } = useTranslation('common');
     console.log(page);
     console.log(nodes)
 
     const [selectedNodes, setSelectedNodes] = useState(nodes)
-    const [initTipologia] = useState({name: 'Tipología del Proyecto', id: 'tipo_0'})
-    const [initRol] = useState({name: 'Rol', id: 'rol_0'})
-    const [initEtapa] = useState({name: 'Etapa', id: 'etapa_0'})
+    const [initTipologia, setInitTipologia] = useState({name: t('tipologia'), id: 'tipo_0'})
+    const [initRol, setInitRol] = useState({name: t('rol'), id: 'rol_0'})
+    const [initEtapa, setInitEtapa] = useState({name: t('etapa'), id: 'etapa_0'})
 
     const [selectedTipologia, setSelectedTipologia ] = useState(initTipologia)
     const [selectedRol, setSelectedRol ] = useState(initRol)
@@ -27,28 +29,41 @@ export default function ArchiveView ({page, nodes, tags, tipologia, rol, etapa})
 
     useEffect(() => {
       if(selectedTag !== null){
-        setSelectedNodes(selectedNodes.filter(item => item.field_tags.filter(tag => tag.name == selectedTag.name).length > 0))
+        setSelectedNodes(nodes.filter(item => item.field_tags.filter(tag => tag.name == selectedTag.name).length > 0))
+        setSelectedTipologia(initTipologia);
+        setSelectedRol(initRol);
+        setSelectedEtapa(initEtapa);
       } 
     }, [selectedTag])
 
     useEffect(() => {
       if(selectedRol.id !== 'rol_0'){
-        setSelectedNodes(selectedNodes.filter(item => item.field_rol_tmb.name == selectedRol.name))
+        setSelectedNodes(nodes.filter(item => item.field_rol_tmb ? item.field_rol_tmb.name == selectedRol.name : undefined))
+        setSelectedTipologia(initTipologia);
+        setSelectedTag(null);
+        setSelectedEtapa(initEtapa);
       } 
     }, [selectedRol])
 
     useEffect(() => {
+      console.log(nodes[0]);
       if(selectedEtapa.id !== 'etapa_0'){
-        setSelectedNodes(selectedNodes.filter((item) => {
-          // item.field_etapa.filter(etapa => etapa.name == selectedEtapa.name).length > 0
-        }))
+        setSelectedNodes(nodes.filter((item) => 
+         item.field_etapa ? item.field_etapa.some((etapa) => etapa.name === selectedEtapa.name) : false
+        ));        
       } 
+      setSelectedTipologia(initTipologia);
+      setSelectedTag(null);
+      setSelectedRol(initRol);
     }, [selectedEtapa])
 
     useEffect(() => {
       if(selectedTipologia.id !== 'tipo_0'){
-        setSelectedNodes(selectedNodes.filter(item => item.field_tipologia.name == selectedTipologia.name))
+        setSelectedNodes(nodes.filter((item) => item.field_tipologia ? item.field_tipologia.name == selectedTipologia.name : undefined))
       } 
+      setSelectedEtapa(initEtapa);
+      setSelectedTag(null);
+      setSelectedRol(initRol);
     }, [selectedTipologia])
     
 
