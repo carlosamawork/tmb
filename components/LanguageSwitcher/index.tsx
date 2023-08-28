@@ -3,7 +3,6 @@ import s from './LanguageSwicther.module.scss'
 
 function LanguageSwitcher({displayLang}) {
   const router = useRouter()
-
   const handleLanguageChange = (lang) => {
     const newPath = router.asPath;
     window.location.href = `/${lang}${newPath}`;
