@@ -52,7 +52,8 @@ export default function SEO ({
       <meta name="robots" content="no index, no follow" />
       <meta name="apple-mobile-web-app-status-bar-style" content="white" />
 
-      
+      <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="3308fd31-9528-4533-8868-f49c0ed16ac0" data-blockingmode="auto" type="text/javascript"></script>
+
 
       {/* {children} */}
     </Head>

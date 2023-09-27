@@ -24,7 +24,6 @@ function TMBApp ({
   
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: '<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="3308fd31-9528-4533-8868-f49c0ed16ac0" data-blockingmode="auto" type="text/javascript"></script>' }} />
       <MainProvider>
         
         <RealViewHeight />
@@ -36,6 +35,8 @@ function TMBApp ({
         </Layout>
         
       </MainProvider>
+      <div dangerouslySetInnerHTML={{ __html: '<script id="CookieDeclaration" src="https://consent.cookiebot.com/3308fd31-9528-4533-8868-f49c0ed16ac0/cd.js" async type="text/javascript"></script>' }} />
+
     </>
   )
 } 
