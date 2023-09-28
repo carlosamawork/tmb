@@ -91,7 +91,9 @@ export default function Footer ({
               
               if(length - 1 === index){
                 return (<li onClick={() => { 
-                  Cookiebot.show()
+                  if (window.Cookiebot) {
+                    window.Cookiebot.show();
+                  }
                 }}>
                     {elem.title}
                 </li>);
