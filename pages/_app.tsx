@@ -35,7 +35,7 @@ function TMBApp ({
         </Layout>
         
       </MainProvider>
-      {/* <div dangerouslySetInnerHTML={{ __html: '<script id="CookieDeclaration" src="https://consent.cookiebot.com/3308fd31-9528-4533-8868-f49c0ed16ac0/cd.js" async type="text/javascript"></script>' }} /> */}
+      <div dangerouslySetInnerHTML={{ __html: '<script id="CookieDeclaration" src="https://consent.cookiebot.com/3308fd31-9528-4533-8868-f49c0ed16ac0/cd.js" async type="text/javascript"></script>' }} />
 
     </>
   )
