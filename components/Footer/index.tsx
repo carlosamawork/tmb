@@ -90,7 +90,7 @@ export default function Footer ({
             {datosMenu?.items.map((elem, index, {length}) => {   
               
               if(length - 1 === index){
-                return (<li onClick={() => { 
+                return (<li style={{cursor: 'pointer'}} onClick={() => { 
                   if (window.Cookiebot) {
                     window.Cookiebot.show();
                   }
