@@ -4,6 +4,15 @@ import React, { useEffect, useRef } from "react"
 import s from './Footer.module.scss'
 import Image from 'next/image'
 
+interface Cookiebot {
+  show: () => void;
+  // Add other methods/properties of Cookiebot if needed
+}
+
+interface Window {
+  Cookiebot: Cookiebot;
+}
+
 export default function Footer ({
   socialMenu,
   datosMenu,
