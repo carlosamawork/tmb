@@ -87,19 +87,29 @@ export default function Footer ({
       <div className={s.bottomMenu}>
         <nav className={s.dataMenu}>
           <ul>
-            {datosMenu?.items.map((elem, index) => {                
-              return(
-                <>
-                  <li key={`footer-datos-menu-${index}`}
-                      ref={e => {
-                        datosMenuRef.current[index] = e
-                      }}>
-                        <Link href={elem.url} rel="noopener noreferrer" target="_blank">
+            {datosMenu?.items.map((elem, index, {length}) => {   
+              
+              if(length - 1 === index){
+                return (<li onClick={() => { 
+                  document.getElementById('CybotCookiebotDialog').style.display = 'block';
+                  document.getElementById('CybotCookiebotDialog').style.opacity = '1';
+                }}>
+                    {elem.title}
+                </li>);
+              } else {
+                return(
+                  <>
+                    <li key={`footer-datos-menu-${index}`}
+                        ref={e => {
+                          datosMenuRef.current[index] = e
+                        }}>
+                          <Link href={elem.url} rel="noopener noreferrer" target="_blank">
                           {elem.title}
-                        </Link>
-                  </li>
-                </>
-              )
+                          </Link>
+                    </li>
+                  </>
+                )
+              }   
             })}
           </ul>
         </nav>
