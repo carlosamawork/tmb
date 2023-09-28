@@ -91,8 +91,7 @@ export default function Footer ({
               
               if(length - 1 === index){
                 return (<li onClick={() => { 
-                  document.getElementById('CybotCookiebotDialog').style.display = 'block';
-                  document.getElementById('CybotCookiebotDialog').style.opacity = '1';
+                  Cookiebot.show()
                 }}>
                     {elem.title}
                 </li>);
