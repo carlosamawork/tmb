@@ -96,7 +96,7 @@ export default function Footer ({
                     // Esperar un pequeño retraso para asegurarse de que el banner se ha rendereado
                     setTimeout(() => {
                       try {
-                          const settingsButton = document.querySelector('.cb-enable');
+                          const settingsButton = document.querySelector('#CybotCookiebotDialogNavDetails');
                           if(settingsButton) {
                               (settingsButton as HTMLElement).click();
                           }
