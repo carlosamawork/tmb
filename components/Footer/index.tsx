@@ -96,10 +96,9 @@ export default function Footer ({
                     // Esperar un pequeño retraso para asegurarse de que el banner se ha rendereado
                     setTimeout(() => {
                       try {
-                          // Encontrar el botón "Ajustes de Cookie" y hacer clic en él
                           const settingsButton = document.querySelector('.cb-enable');
                           if(settingsButton) {
-                              settingsButton.click();
+                              (settingsButton as HTMLElement).click();
                           }
                       } catch(error) {
                           console.error('Error trying to open Cookiebot details:', error);
