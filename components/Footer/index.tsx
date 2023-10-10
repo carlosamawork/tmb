@@ -92,7 +92,7 @@ export default function Footer ({
               if(length - 1 === index){
                 return (<li style={{cursor: 'pointer'}} onClick={() => { 
                   if (window.Cookiebot) {
-                    window.Cookiebot.show();
+                    window.Cookiebot.renew();
                   }
                 }}>
                     {elem.title}
